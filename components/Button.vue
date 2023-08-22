@@ -13,10 +13,11 @@
     :min-width="minWidth"
     :max-width="maxWidth"
     :color="color"
+    :ripple="ripple"
   >
     <template v-if="!isSpinner">
-      <template v-if="svg && svgLeft && !svgRight">
-        <div>
+      <template v-if="svg && svgLeft">
+        <div class="d-flex align-center h-100">
           <Component :is="svgLeft" />
         </div>
       </template>
@@ -26,8 +27,8 @@
         :class="{ textClass }"
         v-html="text"
       ></span>
-      <template v-if="svg && svgRight && !svgLeft">
-        <div>
+      <template v-if="svg && svgRight">
+        <div class="d-flex align-center h-100">
           <Component :is="svgRight" />
         </div>
       </template>
@@ -58,6 +59,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    ripple: {
+      type: Boolean,
+      default: true,
     },
     type: {
       type: String,

@@ -31,7 +31,7 @@
         </button>
 
         <!-- user menu  -->
-        <v-menu :nudge-bottom="5" offset-y>
+        <v-menu :nudge-bottom="6" offset-y>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
               :ripple="false"

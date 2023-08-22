@@ -29,6 +29,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/api.js',
+    { src: '~/plugins/chart.js', mode: 'client' },
     // "~/plugins/toast.js",
     '~/plugins/helper.js',
     // '~/plugins/axios.js',
