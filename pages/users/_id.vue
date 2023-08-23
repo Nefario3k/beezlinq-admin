@@ -38,6 +38,7 @@
             />
             <!-- Suspend  -->
             <Button
+              @action="$refs.userSuspend.showDialogue()"
               :elevation="0"
               :outlined="true"
               textColor="var(--primary-dark-color)"
@@ -50,6 +51,7 @@
             />
             <!-- Disable  -->
             <Button
+              @action="$refs.userDisable.showDialogue()"
               :elevation="0"
               :outlined="true"
               textColor="var(--primary-dark-color)"
@@ -292,6 +294,8 @@
       ref="userEditInfo"
     />
     <ModalUserUpgrade ref="userUpgrade" />
+    <ModalUserSuspend ref="userSuspend" />
+    <ModalUserDisable ref="userDisable" />
   </div>
 </template>
 

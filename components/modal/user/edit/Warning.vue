@@ -16,7 +16,7 @@
             <h3>Unsaved Changes</h3>
             <p class="sub_text">
               Are you sure you want to exit? <br />
-              Not that all changes will not be saved
+              Note that all changes will not be saved!
             </p>
             <div class="button_area">
               <Button

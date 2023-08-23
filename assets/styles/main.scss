@@ -2351,6 +2351,30 @@ body:has(.v-main) {
                 }
             }
 
+            .input_label {
+                color: currentColor;
+                font-size: 1.6rem;
+                margin-bottom: 7px;
+                font-weight: 500;
+            }
+
+            .select_field {
+                height: 4.8rem;
+                border-color: var(--border2);
+                color: currentColor;
+                text-transform: initial;
+
+                option {
+                    text-transform: initial;
+                }
+
+                &:focus {
+                    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.05);
+                    border-color: var(--primary-color);
+                }
+
+            }
+
             .button_area {
                 margin-top: 50px;
                 display: flex;
