@@ -22,7 +22,7 @@
         pagination: pagination,
         itemsPerPageText: 'Rows Per Page:',
       }"
-      class="generic__table selectTable"
+      class="generic__table selectTable flows_color"
     >
       <!-- user  -->
       <template v-slot:item.user="{ item }">
@@ -37,24 +37,19 @@
           </div>
         </div>
       </template>
-      <!-- email  -->
-      <template v-slot:item.email="{ item }">
+      <!-- place  -->
+      <template v-slot:item.place="{ item }">
         <div class="user_content">
           <div class="user_content_details">
-            <p class="email">
-              <a :href="`mailto:${item.email}`">{{ item.email }}</a>
-            </p>
+            <p>{{ item.place }}</p>
           </div>
         </div>
       </template>
-      <!-- Country  -->
-      <template v-slot:item.country="{ item }">
+      <!-- industry  -->
+      <template v-slot:item.industry="{ item }">
         <div class="user_content">
           <div class="user_content_details">
-            <div v-if="item.country.flag" class="images__container">
-              <img :src="item.country.flag" alt="avatar" />
-            </div>
-            <p>{{ item.country.name }}</p>
+            <p>{{ item.industry }}</p>
           </div>
         </div>
       </template>
@@ -71,14 +66,6 @@
         <div class="user_content">
           <div class="user_content_details">
             <p>{{ item.type }}</p>
-          </div>
-        </div>
-      </template>
-      <!-- card_no  -->
-      <template v-slot:item.card_no="{ item }">
-        <div class="user_content">
-          <div class="user_content_details">
-            <p>{{ $formatNumber(item.card_no) }}</p>
           </div>
         </div>
       </template>
@@ -194,16 +181,15 @@ export default {
       tableLoader: false,
       headers: [
         {
-          text: "User",
+          text: "Connections",
           align: "start",
           sortable: true,
           value: "user",
         },
-        { text: "Email Address", value: "email" },
-        { text: "Country", value: "country" },
+        { text: "Place", value: "place" },
+        { text: "Industry", value: "industry" },
         { text: "Profession", value: "job" },
         { text: "Card type", value: "type" },
-        { text: "No. of Card", value: "card_no" },
         { text: "date", value: "created_at" },
         { text: "action", value: "action" },
       ],
@@ -227,14 +213,10 @@ export default {
         first_name: "Adam",
         last_name: "Kosher",
         avatar: "/images/temp/user.jpg",
-        email: "admakosher@gmail.com",
-        country: {
-          name: "Nigeria",
-          flag: "/images/temp/flags/1.png",
-        },
+        place: "Transcorp Hotel, Abuja",
+        industry: "legal",
         job: "Lawyer",
         type: "Bizcard",
-        card_no: 6,
       };
       for (let index = 0; index < 16; index++) {
         let dune = structuredClone(obj);

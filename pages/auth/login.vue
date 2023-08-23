@@ -70,7 +70,7 @@
             <!-- login button  -->
             <div class="col-12 d-flex align-center justify-center">
               <Button
-                type="submit"
+                to="/"
                 :elevation="2"
                 :disabled="disableBtn"
                 :isSpinner="loading"

@@ -34,12 +34,13 @@
               <SvgAngleLeft />
             </div>
           </template>
+
           <template v-else>
             <Button
               @action="check"
               :elevation="0"
               width="100%"
-              class="p-0 m-0"
+              class="p-0 m-0 transleft"
               minWidth="max-content"
               height="max-content"
               color="transparent"

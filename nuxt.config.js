@@ -17,7 +17,24 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      {
+        src: "/scripts/jquery-3.3.1.min.js",
+        type: "text/javascript",
+      }, {
+        src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js",
+        type: "text/javascript",
+        integrity: "sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN",
+        crossorigin: "anonymous",
+        body: true,
+        defer: true,
+      }, {
+        src: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js",
+        type: "text/javascript",
+        body: true,
+        defer: true,
+      }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

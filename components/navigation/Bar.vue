@@ -2,7 +2,7 @@
   <v-app-bar
     color="#fff"
     elevate-on-scroll
-    :elevation="2"
+    :elevation="1"
     fixed
     :height="70"
     app

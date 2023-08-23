@@ -3,18 +3,17 @@
     --primary-color: #0062FF;
     --primary-dark-color: #00317F;
     --primary-dark-color2: #0D2450;
+    --primary-dark-color3: #0061F70A;
     --primary-lte-color: #0062FF0F;
     --primary-lte-color2: #D9D9D93D;
     --primary-lte-color3: #E5EBF44D;
     --primary-lte-color4: #ECF1FF;
+    --primary-lte-color5: #0061F7B5;
     --danger-color: #EB001B;
     --pending-color: #FFC289;
     --pending-color2: #FF993A;
     --green: #3FBF62;
     --green2: #EBF7EE;
-
-    // table 
-    --table-color: #312e2e;
 
     // text 
     --placeholder: #BFBDBD;
@@ -25,9 +24,13 @@
     // theme dark 
     --bg-dark: #00183E;
     --bg-light: #E5EBF4;
+    --bg-light2: #DEEBFF;
+    --bg-light3: #F5F9FF;
+    --bg-light4: #F6FAFF;
     // text 
     --text-dark: #fff;
     --text-dark2: #D4E5FF;
+    --text-dark3: #445A8A;
     // label 
     --label-light: #A4A4BC;
     --label-light2: #5A5A5A;
@@ -35,10 +38,21 @@
     // border 
     --border: #E5EBF4;
     --border2: #D9D9D9;
+    --border3: #F0F0F0;
     // cards 
     --card1: #F9FBFF;
     // table 
     --table: #F8F8F8;
+    --table2: #F1F1F1;
+
+    // chips 
+    --chip-text: #2F7759;
+    --chip-text2: #9A0000;
+    --chip-bg: #ECFFEE;
+    --chip-bg2: #FFE9E9;
+
+    // scrim 
+    --scrim: #00317F40;
     font-size: 62.5%;
 }
 
@@ -62,9 +76,6 @@
 button,
 a,
 svg,
-path,
-rect,
-circle,
 input {
     transition: all 0.2s ease-in-out;
 }
@@ -78,6 +89,23 @@ html:has(.auth_row_head) {
     overflow-x: hidden !important;
 }
 
+::-webkit-scrollbar {
+    width: 10px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: none;
+    // background: var(--bg-dark);
+    /* border-radius: 10px; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    /* border-radius: 10px; */
+}
+
 // recurring styles 
 body {
     font-size: 1.6rem;
@@ -85,6 +113,32 @@ body {
     a {
         color: inherit;
         text-decoration: none;
+
+        &.back__link {
+            display: flex;
+            align-items: center;
+            grid-gap: 6px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 500;
+
+            svg {
+                width: 2.4rem;
+                height: 2.4rem;
+
+                path.stroke {
+                    stroke: currentColor;
+                }
+            }
+
+            &:is(:hover, :focus) {
+                color: var(--primary-dark-color);
+
+                svg {
+                    transform: translateX(-5px);
+                }
+            }
+        }
 
         &:focus {
             outline-color: var(--primary-color);
@@ -160,10 +214,13 @@ body {
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
+        text-transform: capitalize;
+
 
         option {
             background-color: var(--primary-lte-color);
-            color: var(--text-light);
+            color: var(--primary-dark-color);
+            text-transform: capitalize;
         }
 
         &:focus,
@@ -217,6 +274,7 @@ body {
 
         .v-btn__content {
             width: 100%;
+            grid-gap: 14px;
 
             span {
                 color: var(--text-dark);
@@ -236,8 +294,6 @@ body {
             }
 
             .v-btn__content {
-                grid-gap: 14px;
-                width: 100%;
 
                 &>* {
                     flex: auto;
@@ -275,7 +331,6 @@ body {
             background-color: var(--text-dark);
 
             .v-btn__content {
-                grid-gap: 14px;
                 justify-content: space-between;
 
                 span {
@@ -285,20 +340,39 @@ body {
 
             }
 
-            &.large {
-                .v-btn__content {
-
-                    span {
-                        font-size: 1.6rem;
-                    }
-
-                }
-            }
 
             &.export {
                 svg path.stroke {
                     stroke: var(--text-dark);
                 }
+
+                &.outlined {
+                    svg path.stroke {
+                        stroke: var(--primary-color);
+                    }
+                }
+            }
+
+            &.userBtns {
+                .v-btn__content {
+                    justify-content: center;
+
+                    span {
+                        font-size: 1.4rem;
+                        font-weight: 400;
+                    }
+
+                }
+            }
+        }
+
+        &.large {
+            .v-btn__content {
+
+                span {
+                    font-size: 1.6rem;
+                }
+
             }
         }
 
@@ -318,6 +392,20 @@ body {
                     }
                 }
             }
+        }
+
+        &.close_mark {
+            &::before {
+                display: none;
+            }
+
+            &:is(:hover, :focus) {
+                svg path.fill {
+                    fill: var(--danger-color);
+                }
+
+            }
+
         }
 
         &:disabled,

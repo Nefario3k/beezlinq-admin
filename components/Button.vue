@@ -47,7 +47,7 @@ export default {
       type: String,
     },
     text: {
-      type: String,
+      type: String | Number,
     },
     textClass: {
       type: String,
@@ -69,20 +69,20 @@ export default {
       default: "button",
     },
     height: {
-      type: String || Number,
+      type: String | Number,
     },
     width: {
-      type: String || Number,
+      type: String | Number,
       default: null,
     },
     minHeight: {
-      type: String || Number,
+      type: String | Number,
     },
     minWidth: {
-      type: String || Number,
+      type: String | Number,
     },
     maxWidth: {
-      type: String || Number,
+      type: String | Number,
       default: "100%",
     },
     isSpinner: {

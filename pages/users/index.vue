@@ -342,7 +342,11 @@
         </section>
         <!--======================= user filter  =======================-->
         <section class="col-12">
-          <SearchPageUserIndex />
+          <SearchPageUserOrigin />
+        </section>
+        <!--======================= user table  =======================-->
+        <section class="col-12">
+          <TablesUserPageIndex />
         </section>
       </v-row>
     </section>

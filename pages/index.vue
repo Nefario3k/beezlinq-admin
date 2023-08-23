@@ -15,7 +15,6 @@
           </div>
           <!-- statistics  -->
           <div class="col-12">
-            <!-- Statistics -->
             <div class="card_container stats">
               <div class="mb-6 d-flex align-center justify-space-between gap-5">
                 <!-- header nd label  -->

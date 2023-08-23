@@ -201,7 +201,7 @@
                   <!-- button  -->
                   <div class="col-12 d-flex align-center justify-center">
                     <Button
-                      type="submit"
+                      to="login"
                       :elevation="2"
                       :disabled="false"
                       :isSpinner="loading"
@@ -243,7 +243,7 @@ export default {
         cPassword: "",
         tokenNUmber: "",
       },
-      tabIndicator: 2,
+      tabIndicator: 0,
       otpLimit: 6,
       loading: false,
       passwordType: {

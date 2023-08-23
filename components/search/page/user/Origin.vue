@@ -246,8 +246,7 @@
               <div class="statusFilter">
                 <Button
                   :elevation="0"
-                  :disabled="disableBtn"
-                  :isSpinner="loading"
+                  :disabled="false"
                   height="4.4rem"
                   width="100%"
                   color="var(--primary-color)"

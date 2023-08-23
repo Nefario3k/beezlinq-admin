@@ -22,47 +22,41 @@
         pagination: pagination,
         itemsPerPageText: 'Rows Per Page:',
       }"
-      class="generic__table selectTable"
+      class="generic__table selectTable flows_color"
     >
-      <!-- user  -->
-      <template v-slot:item.user="{ item }">
-        <div class="user_content capital">
+      <!-- name  -->
+      <template v-slot:item.name="{ item }">
+        <div class="user_content">
           <div class="user_content_details">
-            <div v-if="item.avatar" class="images__container bordered">
-              <img :src="item.avatar" alt="avatar" />
-            </div>
-            <nuxt-link to="/users/121212">
-              <span>{{ $getFullName(item.first_name, item.last_name) }}</span>
-            </nuxt-link>
+            <p>{{ item.name }}</p>
           </div>
         </div>
       </template>
-      <!-- email  -->
-      <template v-slot:item.email="{ item }">
+      <!-- industry  -->
+      <template v-slot:item.industry="{ item }">
         <div class="user_content">
           <div class="user_content_details">
-            <p class="email">
-              <a :href="`mailto:${item.email}`">{{ item.email }}</a>
+            <p>{{ item.industry }}</p>
+          </div>
+        </div>
+      </template>
+      <!-- connections  -->
+      <template v-slot:item.connections="{ item }">
+        <div class="user_content">
+          <div class="user_content_details">
+            <p>{{ $formatNumber(item.connections) }} connections</p>
+          </div>
+        </div>
+      </template>
+      <!-- share  -->
+      <template v-slot:item.share="{ item }">
+        <div class="user_content">
+          <div class="user_content_details">
+            <p>
+              {{ $formatNumber(item.share) }} share{{
+                item.share > 1 ? "s" : ""
+              }}
             </p>
-          </div>
-        </div>
-      </template>
-      <!-- Country  -->
-      <template v-slot:item.country="{ item }">
-        <div class="user_content">
-          <div class="user_content_details">
-            <div v-if="item.country.flag" class="images__container">
-              <img :src="item.country.flag" alt="avatar" />
-            </div>
-            <p>{{ item.country.name }}</p>
-          </div>
-        </div>
-      </template>
-      <!-- job  -->
-      <template v-slot:item.job="{ item }">
-        <div class="user_content">
-          <div class="user_content_details">
-            <p>{{ item.job }}</p>
           </div>
         </div>
       </template>
@@ -71,14 +65,6 @@
         <div class="user_content">
           <div class="user_content_details">
             <p>{{ item.type }}</p>
-          </div>
-        </div>
-      </template>
-      <!-- card_no  -->
-      <template v-slot:item.card_no="{ item }">
-        <div class="user_content">
-          <div class="user_content_details">
-            <p>{{ $formatNumber(item.card_no) }}</p>
           </div>
         </div>
       </template>
@@ -102,14 +88,14 @@
               </div>
             </template>
             <v-list class="dropdown__list">
-              <!-- user  -->
+              <!-- card  -->
               <v-list-item
                 @click="showPanel('view', item)"
                 class="dropdown__list-item"
               >
                 <v-list-item-content>
                   <v-list-item-title class="dropdown__list-title"
-                    >View User</v-list-item-title
+                    >View card</v-list-item-title
                   >
                 </v-list-item-content>
               </v-list-item>
@@ -120,40 +106,29 @@
               >
                 <v-list-item-content>
                   <v-list-item-title class="dropdown__list-title"
-                    >Edit User</v-list-item-title
+                    >Edit card</v-list-item-title
                   >
                 </v-list-item-content>
               </v-list-item>
-              <!-- Upgrade User -->
+              <!-- Deactivate Card -->
               <v-list-item
                 @click="showPanel('enableAdmin', item)"
                 class="dropdown__list-item"
               >
                 <v-list-item-content>
                   <v-list-item-title class="dropdown__list-title"
-                    >Upgrade User</v-list-item-title
+                    >Deactivate Card</v-list-item-title
                   >
                 </v-list-item-content>
               </v-list-item>
-              <!-- Suspend User -->
+              <!-- Disable Card -->
               <v-list-item
-                @click="showPanel('disableAdmin', item)"
+                @click="showPanel('enableAdmin', item)"
                 class="dropdown__list-item"
               >
                 <v-list-item-content>
                   <v-list-item-title class="dropdown__list-title"
-                    >Suspend User</v-list-item-title
-                  >
-                </v-list-item-content>
-              </v-list-item>
-              <!-- Disable User -->
-              <v-list-item
-                @click="showPanel('disableAdmin', item)"
-                class="dropdown__list-item"
-              >
-                <v-list-item-content>
-                  <v-list-item-title class="dropdown__list-title"
-                    >Disable User</v-list-item-title
+                    >Disable Card</v-list-item-title
                   >
                 </v-list-item-content>
               </v-list-item>
@@ -194,17 +169,16 @@ export default {
       tableLoader: false,
       headers: [
         {
-          text: "User",
+          text: "Card name",
           align: "start",
           sortable: true,
-          value: "user",
+          value: "name",
         },
-        { text: "Email Address", value: "email" },
-        { text: "Country", value: "country" },
-        { text: "Profession", value: "job" },
+        { text: "Industry", value: "industry" },
+        { text: "Connections", value: "connections" },
+        { text: "Share", value: "share" },
         { text: "Card type", value: "type" },
-        { text: "No. of Card", value: "card_no" },
-        { text: "date", value: "created_at" },
+        { text: "Created", value: "created_at" },
         { text: "action", value: "action" },
       ],
       pagination: {
@@ -224,17 +198,11 @@ export default {
       var data = [];
       var obj = {
         id: 1,
-        first_name: "Adam",
-        last_name: "Kosher",
-        avatar: "/images/temp/user.jpg",
-        email: "admakosher@gmail.com",
-        country: {
-          name: "Nigeria",
-          flag: "/images/temp/flags/1.png",
-        },
-        job: "Lawyer",
+        name: "my designer card",
+        industry: "Personal",
+        connections: 4,
+        share: 22,
         type: "Bizcard",
-        card_no: 6,
       };
       for (let index = 0; index < 16; index++) {
         let dune = structuredClone(obj);
