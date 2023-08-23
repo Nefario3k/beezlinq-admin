@@ -96,13 +96,13 @@ export default ({ app }, inject) => {
             start() {
                 let body = document.querySelector("body");
                 $nuxt.$loading.start();
-                body.style.height = "100vh";
+                // body.style.height = "100vh";
                 body.style.overflow = "hidden";
             },
             finish() {
                 let body = document.querySelector("body");
                 $nuxt.$loading.finish();
-                body.style.height = null;
+                // body.style.height = null;
                 body.style.overflow = null;
             },
         };

@@ -21,12 +21,14 @@
     // theme light 
     --text-light: #0E2045;
     --text-light2: #222222;
+    --text-light3: #000;
     // theme dark 
     --bg-dark: #00183E;
     --bg-light: #E5EBF4;
     --bg-light2: #DEEBFF;
     --bg-light3: #F5F9FF;
     --bg-light4: #F6FAFF;
+    --bg-light5: #EDF4FF;
     // text 
     --text-dark: #fff;
     --text-dark2: #D4E5FF;
@@ -102,7 +104,7 @@ html:has(.auth_row_head) {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
+    background: var(--primary-dark-color);
     /* border-radius: 10px; */
 }
 
@@ -210,6 +212,7 @@ body {
         color: var(--text-light);
         margin: 0px;
         padding: 7px 14px;
+        padding-right: 30px;
         background: url('/svgs/arrow_down.svg') 95% center no-repeat, transparent;
         appearance: none;
         -webkit-appearance: none;
@@ -282,6 +285,16 @@ body {
                 font-weight: 600;
             }
 
+        }
+
+        &.addon {
+            .v-btn__content {
+
+                span {
+                    font-weight: 500;
+                }
+
+            }
         }
 
         &.userDropDown {

@@ -35,6 +35,6 @@
 
 <script>
 export default {
-  name: "VerticalDots",
+  name: "Vertical",
 };
 </script>

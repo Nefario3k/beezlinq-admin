@@ -84,7 +84,7 @@
           <v-menu offset-y min-width="15.6rem">
             <template v-slot:activator="{ on, attrs }">
               <div v-bind="attrs" v-on="on" class="action__activator">
-                <SvgVerticalDots />
+                <SvgDotsVertical />
               </div>
             </template>
             <v-list class="dropdown__list">
