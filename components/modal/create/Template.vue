@@ -138,15 +138,97 @@
                   <!-- Web Thumbnail  -->
                   <div class="col-12 pb-1">
                     <label for="" class="input_label">Web Thumbnail</label>
+                    <div class="drag_drop_container">
+                      <div class="drop_content">
+                        <SvgImageUpload />
+                        <p><span>Click to Upload</span> or Drag and drop</p>
+                        <p class="label">Maximum file size 2MB</p>
+                      </div>
+                    </div>
                   </div>
                   <!-- Mobile Thumbnail  -->
                   <div class="col-12 pb-1">
                     <label for="" class="input_label">Mobile Thumbnail</label>
+                    <div class="drag_drop_container">
+                      <div class="drop_content">
+                        <p><span>Click to Upload</span> or Drag and drop</p>
+                        <p class="label">Maximum file size 2MB</p>
+                      </div>
+                    </div>
                   </div>
                   <!-- Custom Colour  -->
                   <div class="col-12 pb-1">
                     <div class="color_label">
                       <label for="" class="input_label">Custom Colour</label>
+                      <v-menu
+                        v-model="menuModel"
+                        nudge-left="90%"
+                        open-on-hover
+                        close-delay="100"
+                        :close-on-content-click="closeOnContent"
+                        min-width="280"
+                        max-width="280"
+                        :nudge-bottom="5"
+                        offset-y
+                      >
+                        <template v-slot:activator="{ on, attrs }">
+                          <button
+                            :class="{ active: menuModel }"
+                            v-bind="attrs"
+                            v-on="on"
+                            type="button"
+                          >
+                            <span></span>
+                            <SvgAngleDown />
+                          </button>
+                        </template>
+                        <v-list class="dropdown__list">
+                          <!-- control -->
+                          <v-list-item
+                            style="padding-top: 12px"
+                            class="dropdown__list-item noHover color__selector"
+                          >
+                            <div class="pb-5">
+                              <p>Select a Colour</p>
+                              <div class="color_row">
+                                <!--====================== colors  ======================-->
+                                <div
+                                  v-for="(items, index) in color_types"
+                                  :key="items.color + index"
+                                  class=""
+                                >
+                                  <button
+                                    type="button"
+                                    :style="{ color: items.color }"
+                                    :class="`color_selected ${
+                                      items.status ? 'selected' : ''
+                                    }`"
+                                  >
+                                    <span></span>
+                                  </button>
+                                </div>
+                                <!--=================== color picker  ===================-->
+                                <div class="">
+                                  <button
+                                    @click="chooseColor"
+                                    type="button"
+                                    class="color_selected noHover"
+                                  >
+                                    <SvgPlus />
+                                  </button>
+                                  <input
+                                    type="color"
+                                    hidden
+                                    ref="colorInput"
+                                    name=""
+                                    id=""
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </v-list-item>
+                        </v-list>
+                      </v-menu>
                     </div>
                   </div>
                 </form>
@@ -166,6 +248,30 @@ export default {
       showModal: true,
       width: "100%",
       persistent: false,
+      menuModel: false,
+      closeOnContent: false,
+      color_types: [
+        {
+          color: "#0062FF",
+          status: true,
+        },
+        {
+          color: "#FF993A",
+          status: false,
+        },
+        {
+          color: "##FFFFFF80",
+          status: false,
+        },
+        {
+          color: "#ACACBE",
+          status: false,
+        },
+        {
+          color: "#2A5F9E",
+          status: false,
+        },
+      ],
     };
   },
   methods: {

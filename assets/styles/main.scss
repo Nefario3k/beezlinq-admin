@@ -509,7 +509,7 @@
     }
 }
 
-// dropDown list or list item styles
+// navigation panel dropdown
 .list_container {
     margin: 0;
     padding: 0 !important;
@@ -1511,6 +1511,63 @@ body:has(.v-main) {
                     font-size: 1.6rem;
                     color: var(--primary-dark-color);
                 }
+            }
+
+            &.color__selector {
+                color: var(--primary-dark-color);
+
+                p {
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    line-height: 37.342px;
+                    letter-spacing: -0.154px;
+                }
+
+                .color_row {
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 12px;
+                    flex-wrap: wrap;
+
+                    .color_selected {
+                        width: 3.1rem;
+                        height: 3.1rem;
+                        border-radius: 4px;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid currentColor;
+                        outline: none !important;
+
+                        span {
+                            display: block;
+                            height: 100%;
+                            width: 100%;
+                            background-color: currentColor;
+                            border-radius: inherit;
+                        }
+
+                        &:not(.noHover):is(:focus, :hover),
+                        &.selected {
+                            padding: 2px;
+                        }
+
+                        &.noHover {
+                            background-color: var(--bg-light7);
+                            border: none;
+
+                            &:is(:focus, :hover) {
+                                background-color: var(--primary-color);
+
+                                svg path {
+                                    stroke: var(--text-dark);
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
         }
 
@@ -2524,6 +2581,101 @@ body:has(.v-main) {
                     height: 28.4rem;
                 }
 
+            }
+
+            .drag_drop_container {
+                margin-top: 3px;
+                min-height: 7.8rem;
+                width: 100%;
+                display: grid;
+                place-items: center;
+                border-radius: 8px;
+                border: 1.2px dashed var(--border2);
+                text-align: center;
+                color: var(--primary-dark-color);
+
+                .drop_content {
+                    display: flex;
+                    grid-gap: 8px;
+                    align-items: center;
+                    flex-direction: column;
+                    padding: 13px;
+                }
+
+                svg {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                }
+
+                p {
+                    font-size: 1.4rem;
+                    font-weight: 400;
+
+                    span {
+                        font-weight: 500;
+                        text-decoration: underline;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: var(--primary-color);
+                        }
+                    }
+
+                    &.label {
+                        color: var(--label-light3);
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+
+            .color_label {
+                display: flex;
+                align-items: center;
+                grid-gap: 10px;
+
+                button {
+                    // min-width: 6.6rem;
+                    height: 3.6rem;
+                    margin: 0;
+                    padding: 3px;
+                    padding-right: 10px;
+                    background-color: var(--bg-light6);
+                    color: var(--border2);
+                    border: 1.5px solid currentColor;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    grid-gap: 10px;
+                    border-radius: 8px;
+                    outline: none !important;
+
+                    span {
+                        display: block;
+                        height: 3rem;
+                        width: 3rem;
+                        border-radius: 6px;
+                        background-color: var(--primary-color);
+                    }
+
+                    svg path.stroke {
+                        stroke: var(--primary-dark-color);
+                    }
+
+                    &:is(:focus, :hover),
+                    &.active {
+                        color: var(--primary-color);
+
+                        svg path.stroke {
+                            stroke: currentColor;
+                        }
+                    }
+
+                    &.active {
+                        svg {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
             }
 
 
