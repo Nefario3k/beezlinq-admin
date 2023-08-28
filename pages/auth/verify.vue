@@ -15,7 +15,7 @@
             </div>
             <!-- header  -->
             <header class="col-12">
-              <h2 class="capital">Verify Email</h2>
+              <h2 class="capital">Two Factor Authentication</h2>
               <p>
                 We have sent a verification code to your email
                 <nuxt-link to="mailto:Ilovetoscam@gmail.com"
@@ -40,7 +40,7 @@
             <!-- button  -->
             <div class="col-12 d-flex align-center justify-center">
               <Button
-                type="submit"
+                to="/"
                 :elevation="2"
                 :disabled="false"
                 :isSpinner="loading"

@@ -132,6 +132,26 @@ export default ({ app }, inject) => {
             },
         };
     })
+    // remove user http text if any 
+    inject('removeHttp', (url) => {
+        return url.replace(/^https?:\/\//, '')
+    })
+    // check users links and appends hyperText
+    inject('linkCheck', (url) => {
+        if (!url) return 'javascript:void(0)';
+        let filterLinks = [
+            {
+                stringsToCheck: ["https://", "http://"],
+                value: 'https://' + url,
+            }
+        ]
+
+        if (url.includes(filterLinks[0].stringsToCheck[0]) || url.includes(filterLinks[0].stringsToCheck[1])) {
+            return url
+        } else {
+            return filterLinks[0].value
+        }
+    })
 
     // state management section
     // return state data

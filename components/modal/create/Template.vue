@@ -21,7 +21,7 @@
                 <template>
                   <div class="img_container">
                     <div class="text-center">
-                      <div><SvgImage /></div>
+                      <div><SvgImageCover /></div>
                       <p class="img_label">Cover image here</p>
                     </div>
                   </div>
@@ -31,7 +31,7 @@
                 <template>
                   <div class="img_container mobile">
                     <div class="text-center">
-                      <div><SvgImage /></div>
+                      <div><SvgImageCover /></div>
                       <p class="img_label">Cover image here</p>
                     </div>
                   </div>
@@ -157,7 +157,7 @@
                     </div>
                   </div>
                   <!-- Custom Colour  -->
-                  <div class="col-12 pb-1">
+                  <div class="col-12">
                     <div class="color_label">
                       <label for="" class="input_label">Custom Colour</label>
                       <v-menu
@@ -198,10 +198,13 @@
                                   class=""
                                 >
                                   <button
+                                    @click="setTempColor(items)"
                                     type="button"
                                     :style="{ color: items.color }"
                                     :class="`color_selected ${
-                                      items.status ? 'selected' : ''
+                                      items.color === temp_color
+                                        ? 'selected'
+                                        : ''
                                     }`"
                                   >
                                     <span></span>
@@ -216,20 +219,34 @@
                                   >
                                     <SvgPlus />
                                   </button>
-                                  <input
-                                    type="color"
-                                    hidden
-                                    ref="colorInput"
-                                    name=""
-                                    id=""
-                                  />
                                 </div>
                               </div>
+                              <input
+                                v-model="selected_color"
+                                style="opacity: 0; height: 0; width: 0"
+                                type="color"
+                                ref="colorInput"
+                                name=""
+                                id=""
+                                @change="setNewColor"
+                              />
                             </div>
                           </v-list-item>
                         </v-list>
                       </v-menu>
                     </div>
+                  </div>
+                  <!-- submit  -->
+                  <div class="col-12 mb-5">
+                    <Button
+                      @action="$emit('showInfo', info)"
+                      type="button"
+                      :elevation="1"
+                      height="5rem"
+                      width="100%"
+                      color="var(--primary-color)"
+                      text="Create Template"
+                    />
                   </div>
                 </form>
               </div>
@@ -245,7 +262,7 @@
 export default {
   data() {
     return {
-      showModal: true,
+      showModal: false,
       width: "100%",
       persistent: false,
       menuModel: false,
@@ -253,25 +270,26 @@ export default {
       color_types: [
         {
           color: "#0062FF",
-          status: true,
         },
         {
           color: "#FF993A",
-          status: false,
         },
         {
           color: "##FFFFFF80",
-          status: false,
         },
         {
           color: "#ACACBE",
-          status: false,
         },
         {
           color: "#2A5F9E",
-          status: false,
         },
       ],
+      selected_color: null,
+      temp_color: "#0062FF",
+      info: {
+        head: "Successful",
+        sub: "Your template has been created successfully",
+      },
     };
   },
   methods: {
@@ -281,6 +299,20 @@ export default {
     },
     closeAll() {
       this.showModal = false;
+    },
+    chooseColor() {
+      this.$refs.colorInput.click();
+    },
+
+    setTempColor(item) {
+      this.temp_color = item.color;
+    },
+    setNewColor() {
+      this.temp_color = structuredClone(this.selected_color);
+      this.color_types.push({
+        color: this.temp_color,
+      });
+      this.selected_color = null;
     },
   },
 };

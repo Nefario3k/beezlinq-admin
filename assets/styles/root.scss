@@ -10,6 +10,7 @@
     --primary-lte-color4: #ECF1FF;
     --primary-lte-color5: #0061F7B5;
     --danger-color: #EB001B;
+    --danger-color2: #B45D5D;
     --pending-color: #FFC289;
     --pending-color2: #FF993A;
     --green: #3FBF62;
@@ -31,6 +32,7 @@
     --bg-light5: #EDF4FF;
     --bg-light6: #EAF2FF;
     --bg-light7: #FFF8F8;
+    --bg-light8: #FAFAFA;
     // text 
     --text-dark: #fff;
     --text-dark2: #D4E5FF;
@@ -88,7 +90,8 @@ html {
     scroll-behavior: smooth;
 }
 
-html:has(.auth_row_head) {
+html:has(.auth_row_head),
+html:has(.error__section) {
     overflow-y: auto !important;
     overflow-x: hidden !important;
 }
@@ -379,6 +382,41 @@ body {
 
                 }
             }
+
+            &.date__filter {
+                border: none;
+
+                .v-btn__content {
+                    // justify-content: center;
+                    grid-gap: 10px;
+
+                    span {
+                        font-size: 1.4rem;
+                    }
+
+                }
+            }
+
+            &.dropDownInputFIlter {
+
+                border-radius: 0;
+                border-left: 2px solid var(--border2) !important;
+
+                &.active {
+                    svg {
+                        transform: rotate(180deg);
+
+                        path.stroke {
+                            stroke: var(--primary-color);
+                        }
+                    }
+                }
+
+                &::before {
+                    display: none;
+                }
+
+            }
         }
 
         &.large {
@@ -455,7 +493,9 @@ body {
 }
 
 // hidden scroll bars 
-.nav__list {
+.nav__list,
+iframe,
+.card__create section.top__section {
     &::-webkit-scrollbar {
         width: 0 !important;
     }

@@ -31,7 +31,7 @@
               class="d-flex align-center justify-space-between gap-5 border__header"
             >
               <!-- header nd label  -->
-              <aside style="grid-gap: 24px" class="d-flex align-center">
+              <aside style="grid-gap: 12px" class="d-flex align-center">
                 <h4 class="mb-0 titleCard">Template Usage Category</h4>
                 <Tooltip
                   icon="SvgInfo"
@@ -49,7 +49,7 @@
               class="d-flex align-center justify-space-between gap-5 border__header"
             >
               <!-- header nd label  -->
-              <aside style="grid-gap: 24px" class="d-flex align-center">
+              <aside style="grid-gap: 12px" class="d-flex align-center">
                 <h4 class="mb-0 titleCard">Views and Previews</h4>
                 <Tooltip
                   icon="SvgInfo"
@@ -156,7 +156,7 @@
               class="d-flex align-center justify-space-between gap-5 border__header"
             >
               <!-- header nd label  -->
-              <aside style="grid-gap: 24px" class="d-flex align-center">
+              <aside style="grid-gap: 12px" class="d-flex align-center">
                 <h4 class="mb-0 titleCard">Template use</h4>
                 <Tooltip
                   icon="SvgInfo"
@@ -226,7 +226,7 @@
               <template v-slot:default>
                 <tbody>
                   <tr class="large1" v-for="item in country" :key="item.name">
-                    <td style="width: 60%">
+                    <td>
                       <div class="img_context mb-0">
                         {{ item.name }}
                       </div>
@@ -324,7 +324,15 @@
       </v-row>
     </section>
     <!--===================== panels and modals go here =====================-->
-    <ModalCreateTemplate ref="create" />
+    <ModalCreateTemplate
+      @showInfo="
+        (val) => {
+          $refs.info_modal.showDialogue(val);
+        }
+      "
+      ref="create"
+    />
+    <ModalInfo @closePanel="$refs.create.closeAll()" ref="info_modal" />
   </div>
 </template>
 

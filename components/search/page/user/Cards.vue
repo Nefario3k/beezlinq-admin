@@ -6,21 +6,14 @@
         required
         class="form-control input_field"
         autocomplete="off"
-        type="email"
+        :type="inputType"
         v-model="searchInput"
-        placeholder="name@example.com"
+        :placeholder="placeHolder"
       />
-      <Button
-        title="search"
-        type="submit"
-        :disabled="!searchInput"
-        height="100%"
-        minWidth="max-content"
-        color="var(--primary-color)"
-        contentClass="searchBtn"
-        :svg="true"
-        svgLeft="SvgSearch"
-      />
+      <!-- type drop down  -->
+      <SearchButtonsTypeBtn :listItems="listItems" />
+      <!-- search btn  -->
+      <SearchButtonsSearchingBtn :searchInput="searchInput" />
     </form>
     <!-- actions area  -->
     <aside class="actions__area">
@@ -75,7 +68,7 @@
         </v-list>
       </v-menu>
       <!-- export  -->
-      <SearchExportBtn
+      <SearchButtonsExportBtn
         :outlined="outlined"
         :contentClass="contentClass"
         height="4.4rem"
@@ -99,9 +92,27 @@
 
 <script>
 export default {
-  props: ["outlined", "contentClass", "textColor", "tabIndicator"],
+  props: {
+    placeHolder: {
+      type: String,
+      default: "Search  by name, email here",
+    },
+    outlined: {
+      type: Boolean,
+    },
+    contentClass: {
+      type: String,
+    },
+    tabIndicator: {
+      type: Number || Boolean,
+    },
+    textColor: {
+      type: String,
+    },
+  },
   data() {
     return {
+      inputType: "text",
       searchInput: "",
       menuModel: false,
       closeOnContent: false,
@@ -110,6 +121,20 @@ export default {
         status: "",
         plan: "",
       },
+      listItems: [
+        {
+          label: "First Name",
+          value: "First Name",
+        },
+        {
+          label: "Last Name",
+          value: "Last Name",
+        },
+        {
+          label: "Email",
+          value: "Email",
+        },
+      ],
     };
   },
 };

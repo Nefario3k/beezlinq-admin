@@ -1,13 +1,13 @@
 <template>
   <v-tooltip
     content-class="listTool"
-    :nudge-bottom="6"
+    :nudge-bottom="2"
     :nudge-left="1"
     top
     color="var(--bg-dark)"
   >
     <template v-slot:activator="{ on, attrs }">
-      <div v-bind="attrs" v-on="on">
+      <div style="display: grid; place-items: center" v-bind="attrs" v-on="on">
         <Button
           :elevation="0"
           style="padding: 0"

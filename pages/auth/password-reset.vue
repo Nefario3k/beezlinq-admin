@@ -53,7 +53,7 @@
                       height="5rem"
                       width="100%"
                       color="var(--primary-color)"
-                      text="VERIFY EMAIL"
+                      text="Verify Email"
                     />
                   </div>
                 </form>
@@ -208,7 +208,7 @@
                       height="5rem"
                       width="100%"
                       color="var(--primary-color)"
-                      text="RESET PASSWORD"
+                      text="Reset Password"
                     />
                   </div>
                 </form>

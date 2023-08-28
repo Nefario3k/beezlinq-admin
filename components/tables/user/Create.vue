@@ -28,7 +28,9 @@
       <template v-slot:item.name="{ item }">
         <div class="user_content">
           <div class="user_content_details">
-            <p>{{ item.name }}</p>
+            <nuxt-link to="/cards/121212">
+              <span>{{ item.name }}</span>
+            </nuxt-link>
           </div>
         </div>
       </template>

@@ -64,6 +64,7 @@
             />
           </div>
         </div>
+        <!--==================== user Info  ====================-->
         <div class="user_content_area">
           <!-- header  -->
           <header>
@@ -250,7 +251,7 @@
             <!--==================== table  ====================-->
             <TablesUserConnection />
           </v-tab-item>
-          <!-- Subscription -->
+          <!-- Transactions -->
           <v-tab-item class="p-0 m-0">
             <!--==================== search input  ====================-->
             <div class="search__area mb-6">
@@ -296,6 +297,7 @@
     <ModalUserUpgrade ref="userUpgrade" />
     <ModalUserSuspend ref="userSuspend" />
     <ModalUserDisable ref="userDisable" />
+    <ModalCardCreate ref="cardCreate" />
   </div>
 </template>
 
@@ -309,7 +311,7 @@ export default {
         "Scanned Cards",
         "Archived Cards",
         "Connections",
-        "Subscription",
+        "Transactions",
         "Activity Log",
       ],
     };

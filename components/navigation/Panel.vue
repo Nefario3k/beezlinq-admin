@@ -17,7 +17,10 @@
     >
       <v-list class="list_container topNav nav__list">
         <!-- nav control  -->
-        <v-list-item class="dropdown__list-item noHover beezlinq">
+        <v-list-item
+          :class="{ mini: mini }"
+          class="dropdown__list-item noHover beezlinq"
+        >
           <template v-if="!mini">
             <div
               :class="{ 'mr-2': !mini }"
@@ -40,6 +43,7 @@
               @action="check"
               :elevation="0"
               width="100%"
+              style="padding: 0"
               class="p-0 m-0 transleft"
               minWidth="max-content"
               height="max-content"
@@ -204,6 +208,11 @@ export default {
           title: "Messaging",
           link: "/messaging",
           svg: "SvgSideBarMessaging",
+        },
+        {
+          title: "Request",
+          link: "/request",
+          svg: "SvgSideBarRequest",
         },
         {
           title: "Profile Settings",
