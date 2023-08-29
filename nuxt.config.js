@@ -86,6 +86,8 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // rich text editor 
+    "vue2-editor/nuxt",
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
