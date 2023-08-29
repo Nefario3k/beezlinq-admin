@@ -203,6 +203,20 @@
                 <!-- Contact Information -->
                 <section class="mt-5 input__card">
                   <p class="title__card bordered">Contact Information</p>
+                  <!-- Phone Number -->
+                  <p class="title__card mb-1">Phone Number</p>
+                  <v-row class="input__row">
+                    <div class="col-12 col-md-4">
+                      <div class="relative phone__input">
+                        <input
+                          type="number"
+                          required
+                          class="form-control input_field"
+                          placeholder="Enter email"
+                        />
+                      </div>
+                    </div>
+                  </v-row>
                   <!-- Email Address -->
                   <p class="title__card mb-1">Email Address</p>
                   <v-row class="input__row">
@@ -281,7 +295,7 @@
                   <!-- Service 1 -->
                   <p class="title__card mb-1">Service 1</p>
                   <v-row class="input__row">
-                    <div class="col-12">
+                    <div class="col-12 pb-0">
                       <input
                         type="text"
                         required
@@ -289,11 +303,19 @@
                         placeholder="Service 1 title"
                       />
                     </div>
+                    <div class="col-12">
+                      <client-only>
+                        <VueEditor
+                          placeholder="Enter service description here"
+                          :editorOptions="$emptyEditorToolbar()"
+                        />
+                      </client-only>
+                    </div>
                   </v-row>
                   <!-- Service 2 -->
                   <p class="title__card mb-1 mt-3">Service 2</p>
                   <v-row class="input__row">
-                    <div class="col-12">
+                    <div class="col-12 pb-0">
                       <input
                         type="text"
                         required
@@ -301,17 +323,33 @@
                         placeholder="Service 2 title"
                       />
                     </div>
+                    <div class="col-12">
+                      <client-only>
+                        <VueEditor
+                          placeholder="Enter service description here"
+                          :editorOptions="$emptyEditorToolbar()"
+                        />
+                      </client-only>
+                    </div>
                   </v-row>
                   <!-- Service 3 -->
                   <p class="title__card mb-1 mt-3">Service 3</p>
                   <v-row class="input__row">
-                    <div class="col-12">
+                    <div class="col-12 pb-0">
                       <input
                         type="text"
                         required
                         class="form-control input_field"
                         placeholder="Service 3 title"
                       />
+                    </div>
+                    <div class="col-12">
+                      <client-only>
+                        <VueEditor
+                          placeholder="Enter service description here"
+                          :editorOptions="$emptyEditorToolbar()"
+                        />
+                      </client-only>
                     </div>
                   </v-row>
                 </section>
@@ -341,7 +379,7 @@ export default {
       width: "100%",
       persistent: false,
       menuModel: false,
-      tabIndicator: 3,
+      tabIndicator: 2,
       temp: null,
       tabItems: [
         "Select Template",

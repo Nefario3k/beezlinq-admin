@@ -2702,7 +2702,6 @@ body:has(.v-main) {
 }
 
 // modal styles 
-
 .v-dialog {
     &:not(.v-dialog--fullscreen) {
         border-radius: 12px !important;
@@ -3116,7 +3115,6 @@ body:has(.v-main) {
                     }
                 }
 
-
                 section {
                     &.bottom__section {
                         padding-top: 18px;
@@ -3161,6 +3159,19 @@ body:has(.v-main) {
 
                             &>* {
                                 padding-inline: 5px;
+                            }
+                        }
+
+                        .phone__input {
+                            display: flex;
+                            align-items: center;
+                            grid-gap: 6px;
+                            height: 4.8rem;
+                            width: 100%;
+
+                            input {
+                                border: none !important;
+                                box-shadow: none !important;
                             }
                         }
                     }
