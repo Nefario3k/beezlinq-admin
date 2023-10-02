@@ -20,7 +20,7 @@
             </p>
             <div class="button_area">
               <Button
-                @action="closeAll(1)"
+                @click="closeAll(1)"
                 :outlined="true"
                 height="5rem"
                 width="100%"
@@ -29,7 +29,7 @@
                 text="Continue Edit"
               />
               <Button
-                @action="closeAll(0)"
+                @click="closeAll(0)"
                 height="5rem"
                 width="100%"
                 color="var(--primary-color)"

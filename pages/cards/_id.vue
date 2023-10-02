@@ -5,7 +5,7 @@
       <div
         class="mb-5 card_container user__card_container no_inline user_no_line"
       >
-        <!--==================== user Header  ====================-->
+        <!--==================== card Header  ====================-->
         <div
           class="border__bottom d-flex align-center justify-space-between gap-5"
         >
@@ -29,7 +29,7 @@
             />
             <!-- Preview Card  -->
             <Button
-              @action="$refs.cardPreview.showDialogue()"
+              @click="$refs.cardPreview.showDialogue()"
               :elevation="0"
               :outlined="true"
               textColor="var(--primary-color)"

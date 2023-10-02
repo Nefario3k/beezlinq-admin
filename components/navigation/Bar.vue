@@ -12,13 +12,13 @@
     <div class="topBar">
       <!-- breadcrumbs -->
       <div class="left_side d-flex align-center capital">
-        <span class="user-greeting"
-          >{{
+        <p class="user__route">
+          {{
             $route.fullPath.split("/")[1]
               ? $route.fullPath.split("/")[1].split("-").join(" ")
               : "dashboard"
           }}
-        </span>
+        </p>
       </div>
       <!-- notifications and user  -->
       <div class="right_side">
@@ -52,10 +52,13 @@
             </v-btn>
           </template>
           <v-list class="dropdown__list userDropDown">
-            <v-list-item to="/profile" class="dropdown__list-item">
+            <v-list-item
+              @click="$emit('editProfile')"
+              class="dropdown__list-item"
+            >
               <v-list-item-content>
                 <v-list-item-title class="dropdown__list-title"
-                  >My Profile</v-list-item-title
+                  >Profile</v-list-item-title
                 >
               </v-list-item-content>
             </v-list-item>
@@ -78,4 +81,11 @@ export default {
   methods: {},
 };
 </script>
- 
+
+<style scoped lang="scss">
+p.user__route {
+  color: var(--primary-dark-color);
+  font-weight: 600;
+  font-size: 2rem;
+}
+</style>

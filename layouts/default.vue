@@ -1,7 +1,12 @@
 <template>
   <v-app color="white">
     <NavigationPanel />
-    <NavigationBar />
+    <NavigationBar @editProfile="$refs.editProfile.showPanel()" />
+    <PanelEditProfile
+      ref="editProfile"
+      @editPassword="$refs.editPassword.showPanel()"
+    />
+    <PanelEditPassword ref="editPassword" />
     <v-main>
       <Nuxt />
     </v-main>

@@ -9,12 +9,14 @@
     --primary-lte-color3: #E5EBF44D;
     --primary-lte-color4: #ECF1FF;
     --primary-lte-color5: #0061F7B5;
+    --primary-lte-color6: #008DD2;
     --danger-color: #EB001B;
     --danger-color2: #B45D5D;
     --pending-color: #FFC289;
     --pending-color2: #FF993A;
     --green: #3FBF62;
     --green2: #EBF7EE;
+    --green3: #5CCD5C;
 
     // text 
     --placeholder: #BFBDBD;
@@ -33,10 +35,16 @@
     --bg-light6: #EAF2FF;
     --bg-light7: #FFF8F8;
     --bg-light8: #FAFAFA;
+    --bg-light9: #ECEFFF66;
+    --bg-light10: #F9FBFFA8;
+    --bg-light11: #FFFFFF66;
+    --bg-light12: #F5F6FF;
+    --bg-light13: #F1F1FF;
     // text 
     --text-dark: #fff;
     --text-dark2: #D4E5FF;
     --text-dark3: #445A8A;
+    --text-dark4: #CCCED4;
     // label 
     --label-light: #A4A4BC;
     --label-light2: #5A5A5A;
@@ -46,6 +54,8 @@
     --border2: #D9D9D9;
     --border3: #F0F0F0;
     --border4: #ECEFFF;
+    --border5: #F4F4F4;
+    --border6: #D5DBE5;
     // cards 
     --card1: #F9FBFF;
     // table 
@@ -57,6 +67,9 @@
     --chip-text2: #9A0000;
     --chip-bg: #ECFFEE;
     --chip-bg2: #FFE9E9;
+    --chip-bg3: #ECECEC;
+    --chip-bg4: #EFF5FF;
+    --chip-bg5: #FFF9F9;
 
     // scrim 
     --scrim: #00317F40;
@@ -89,6 +102,8 @@ input {
 
 html {
     scroll-behavior: smooth;
+    overflow: auto !important;
+    overflow-x: hidden !important;
 }
 
 html:has(.auth_row_head),
@@ -104,7 +119,7 @@ html:has(.error__section) {
 /* Track */
 ::-webkit-scrollbar-track {
     box-shadow: none;
-    // background: var(--bg-dark);
+    background: var(--text-dark);
     /* border-radius: 10px; */
 }
 
@@ -193,7 +208,7 @@ body {
 
         &:focus,
         &.hasValue {
-            border-color: var(--primary-color);
+            border-color: var(--primary-color) !important;
             outline: none;
         }
 
@@ -202,6 +217,12 @@ body {
             font-size: 1.2rem;
             color: var(--placeholder);
         }
+
+    }
+
+    textarea {
+        height: 15.3rem !important;
+        resize: none;
     }
 
     // select 
@@ -300,6 +321,34 @@ body {
                     font-weight: 500;
                 }
 
+            }
+        }
+
+        &.permBtn {
+            .v-btn__content {
+                display: flex !important;
+                justify-content: flex-start;
+
+            }
+
+            &:is(:hover, :focus),
+            &.active {
+                color: var(--primary-color) !important;
+                background-color: currentColor;
+                border-color: currentColor;
+
+                &::before {
+                    display: none;
+                }
+
+                .v-btn__content {
+
+                    span {
+                        text-transform: capitalize;
+                        color: var(--text-dark) !important;
+                    }
+
+                }
             }
         }
 
@@ -462,6 +511,30 @@ body {
 
         }
 
+        &.logBtn {
+            border-radius: 6px;
+            // &::before {
+            //     display: none;
+            // }
+
+            &:is(:hover, :focus),
+            &.active {
+                background-color: var(--primary-lte-color);
+
+                svg path.fill {
+                    fill: var(--primary-color);
+                }
+
+            }
+
+        }
+
+        &.noBefore {
+            &::before {
+                display: none;
+            }
+        }
+
         &:disabled,
         &.v-btn--disabled {
             background-color: var(--label-light) !important;
@@ -478,11 +551,11 @@ body {
 
 // reusables 
 .relative {
-    position: relative;
+    position: relative !important;
 }
 
 .absolute {
-    position: absolute;
+    position: absolute !important;
 }
 
 .fixed {
@@ -504,8 +577,9 @@ iframe {
 // line 1 break styles  
 .userDropDown .v-btn__content span,
 .card_container h4,
-.card_container>p {
-    display: -webkit-box;
+.card_container>p,
+.codesWrap span {
+    display: -webkit-box !important;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -570,5 +644,15 @@ iframe {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes load {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

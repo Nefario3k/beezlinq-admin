@@ -3,6 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ssr: false,
+  target: 'static',
   server: {
     port: process.env.PORT || 3000
   },
@@ -36,6 +37,14 @@ export default {
     ],
     script: [
       {
+        src: 'https://cdn.jsdelivr.net/npm/chart.js', type: "text/javascript", body: true,
+        defer: false,
+      },
+      {
+        src: 'https://unpkg.com/chartjs-chart-geo@3.5.2/build/index.umd.min.js', type: "text/javascript", body: true,
+        defer: false,
+      },
+      {
         src: "/scripts/jquery-3.3.1.min.js",
         type: "text/javascript",
       }, {
@@ -66,7 +75,8 @@ export default {
     // "~/plugins/toast.js",
     '~/plugins/helper.js',
     // '~/plugins/axios.js',
-    // '~/plugins/vue-toast-notification.js'
+    // '~/plugins/vue-toast-notification.js',
+    { src: '~plugins/vuedraggable.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

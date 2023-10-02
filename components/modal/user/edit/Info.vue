@@ -34,7 +34,7 @@
             <p class="sub_text">User information successfully updated</p>
             <div class="button_area">
               <Button
-                @action="closeAll(0)"
+                @click="closeAll(0)"
                 :outlined="true"
                 height="5rem"
                 width="100%"

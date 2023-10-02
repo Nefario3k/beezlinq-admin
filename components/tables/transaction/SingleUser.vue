@@ -109,6 +109,7 @@
       <template v-slot:item.action="{ item }">
         <div class="user_content_details">
           <div
+            @click="$refs.viewReceipt.showPanel(item)"
             title="Download Invoice"
             style="cursor: pointer"
             class="p-0 m-0 user_content_details download"
@@ -142,6 +143,7 @@
       </template>
     </v-data-table>
     <LoaderTable v-else />
+    <PanelViewReceipt ref="viewReceipt" />
   </div>
 </template>
 
@@ -186,21 +188,30 @@ export default {
           duration: "20 Jan, 2023 - 16 Jan 2024",
           status: "paid",
           amount: 15000,
-          type: "Subscription",
+          type: "Plan Subscription",
+          gateway: "Paystack",
+          method: "Debit Card",
+          plan: "Pro Plan",
         },
         {
           invoice: "Inv 2093-96049-506",
           duration: "20 Jan, 2023 - 16 Jan 2024",
           status: "failed",
           amount: 5000,
-          type: "Subscription",
+          type: "Plan Subscription",
+          gateway: "Paystack",
+          method: "Debit Card",
+          plan: "Pro Plan",
         },
         {
           invoice: "Inv 2093-96049-506",
           duration: "20 Jan, 2023 - 16 Jan 2024",
           status: "pending",
-          amount: 150000,
-          type: "Subscription",
+          amount: 15000,
+          type: "Plan Subscription",
+          gateway: "Paystack",
+          method: "Debit Card",
+          plan: "Pro Plan",
         },
       ];
       for (let index = 0; index < 16; index++) {

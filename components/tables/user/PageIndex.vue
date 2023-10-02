@@ -103,10 +103,7 @@
             </template>
             <v-list class="dropdown__list">
               <!-- user  -->
-              <v-list-item
-                @click="showPanel('view', item)"
-                class="dropdown__list-item"
-              >
+              <v-list-item to="/users/121212" class="dropdown__list-item">
                 <v-list-item-content>
                   <v-list-item-title class="dropdown__list-title"
                     >View User</v-list-item-title
@@ -115,7 +112,11 @@
               </v-list-item>
               <!-- edit  -->
               <v-list-item
-                @click="showPanel('edit', item)"
+                @click="
+                  $refs.editUserConnection.showPanel(
+                    'must pass something (obj)'
+                  )
+                "
                 class="dropdown__list-item"
               >
                 <v-list-item-content>
@@ -126,7 +127,7 @@
               </v-list-item>
               <!-- Upgrade User -->
               <v-list-item
-                @click="showPanel('enableAdmin', item)"
+                @click="$refs.viewUpgrade.showPanel()"
                 class="dropdown__list-item"
               >
                 <v-list-item-content>
@@ -137,7 +138,7 @@
               </v-list-item>
               <!-- Suspend User -->
               <v-list-item
-                @click="showPanel('disableAdmin', item)"
+                @click="$refs.userSuspend.showDialogue()"
                 class="dropdown__list-item"
               >
                 <v-list-item-content>
@@ -148,7 +149,7 @@
               </v-list-item>
               <!-- Disable User -->
               <v-list-item
-                @click="showPanel('disableAdmin', item)"
+                @click="$refs.userDisable.showDialogue()"
                 class="dropdown__list-item"
               >
                 <v-list-item-content>
@@ -183,6 +184,35 @@
       </template>
     </v-data-table>
     <LoaderTable v-else />
+    <!--===================== panels and modals go here =====================-->
+    <PanelEditUser
+      @success="$refs.userEditInfo.showDialogue()"
+      @showWarning="$refs.userWarning.showDialogue()"
+      ref="editUserConnection"
+    />
+    <PanelViewUpgrade
+      @showUpgradeModal="$refs.userUpgrade.showDialogue()"
+      ref="viewUpgrade"
+    />
+    <ModalUserEditWarning
+      @closePanel="
+        (val) => {
+          $refs.editUserConnection.closePanel(val);
+        }
+      "
+      ref="userWarning"
+    />
+    <ModalUserEditInfo
+      @closePanel="
+        (val) => {
+          $refs.editUserConnection.closePanel(val);
+        }
+      "
+      ref="userEditInfo"
+    />
+    <ModalUserUpgrade ref="userUpgrade" />
+    <ModalUserSuspend ref="userSuspend" />
+    <ModalUserDisable ref="userDisable" />
   </div>
 </template>
 

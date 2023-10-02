@@ -3,14 +3,19 @@
     <section class="pageContent">
       <div class="d-flex align-center justify-space-between mb-5">
         <h2 class="page_head mb-0">Beezlinq Templates</h2>
-        <Button
-          @action="$refs.create.showDialogue()"
-          height="4.8rem"
-          minWidth="19.1rem"
-          color="var(--primary-color)"
-          text="Add New Template"
-          contentClass="addon"
-        />
+
+        <div style="grid-gap: 8px" class="d-flex align-center flex-wrap">
+          <!-- date filter  -->
+          <PageDateFilter />
+          <Button
+            @click="$refs.create.showDialogue()"
+            height="4.8rem"
+            minWidth="19.1rem"
+            color="var(--primary-color)"
+            text="Add New Template"
+            contentClass="addon"
+          />
+        </div>
       </div>
       <!-- flex cards  -->
       <div class="card_wrapper">
@@ -38,6 +43,31 @@
                   text="Users who recently registered on the platform"
                 />
               </aside>
+            </div>
+            <div
+              v-if="pieChartData.length"
+              class="py-2 d-flex align-center justify-space-between gap-3 w-100"
+            >
+              <ChartPie
+                :cutout="15"
+                :maxWidth="60"
+                :pieChartData="pieChartData"
+              />
+              <div class="pieLabels templates">
+                <ul>
+                  <li v-for="(items, id) in pieChartData" :key="id + 994488">
+                    <!-- label name -->
+                    <span>{{ items.label }}</span>
+                    <!-- label color -->
+                    <span
+                      :style="{ backgroundColor: items.color }"
+                      class="tag"
+                    ></span>
+                    <!-- label % -->
+                    <span class="percent">{{ items.value }}%</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -145,6 +175,9 @@
                   </v-list>
                 </v-menu>
               </div>
+            </div>
+            <div v-if="Object.keys(barChartData).length" class="py-2">
+              <ChartBar :barChartData="barChartData" />
             </div>
           </div>
         </section>
@@ -394,6 +427,63 @@ export default {
           date: 48.4,
         },
       ],
+      pieChartData: [
+        {
+          label: "Free Template",
+          value: 56,
+          color: "#0062FF",
+        },
+        {
+          label: "Paid Templates",
+          value: 34,
+          color: "#FF993A",
+        },
+        {
+          label: "Custom Templates",
+          value: 10,
+          color: "#00317F",
+        },
+      ],
+      barChartData: {
+        templates: [
+          {
+            label: "Green Temp",
+            value: 25,
+          },
+          {
+            label: "Blue Temp",
+            value: 20,
+          },
+          {
+            label: "Orange Temp",
+            value: 16,
+          },
+          {
+            label: "Lucid Temp",
+            value: 13,
+          },
+          {
+            label: "Purple Temp",
+            value: 13,
+          },
+          {
+            label: "Blue Temp",
+            value: 34,
+          },
+          {
+            label: "Orange Temp",
+            value: 34,
+          },
+          {
+            label: "Lucid Temp",
+            value: 40,
+          },
+          {
+            label: "Lucid Temp",
+            value: 9,
+          },
+        ],
+      },
     };
   },
   computed: {

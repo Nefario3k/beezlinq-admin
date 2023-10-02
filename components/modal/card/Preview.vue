@@ -9,15 +9,15 @@
       :width="width"
     >
       <v-card color="var(--bg-light)" class="modal_box">
+        <!--========================= header  =========================-->
+        <header>
+          <div class="left__wing">
+            <h2>My Designer Card</h2>
+          </div>
+          <ModalClose @closeModal="closeAll" />
+        </header>
         <div class="card_preview">
           <div>
-            <!--========================= header  =========================-->
-            <header>
-              <div class="left__wing">
-                <h2>My Designer Card</h2>
-              </div>
-              <ModalClose @closeModal="closeAll" />
-            </header>
             <!--========================= iframe  =========================-->
             <iframe
               title="My Designer Card"

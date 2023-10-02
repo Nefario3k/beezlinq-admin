@@ -17,7 +17,7 @@
             <p class="sub_text">{{ info_stat.sub }}</p>
             <div class="button_area">
               <Button
-                @action="closeAll(0)"
+                @click="closeAll(0)"
                 :outlined="true"
                 height="5rem"
                 width="100%"

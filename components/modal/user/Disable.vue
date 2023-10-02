@@ -42,7 +42,7 @@
             </div>
             <div class="button_area">
               <Button
-                @action="closeAll"
+                @click="closeAll"
                 :outlined="true"
                 height="5rem"
                 width="100%"
@@ -51,7 +51,7 @@
                 text="Cancel"
               />
               <Button
-                @action="closeAll"
+                @click="closeAll"
                 height="5rem"
                 width="100%"
                 color="var(--primary-color)"

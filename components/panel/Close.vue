@@ -11,7 +11,7 @@
       <span>{{ title }}</span>
       <Button
         title="Close"
-        @action="$emit('closeDrawer')"
+        @click="$emit('closeDrawer')"
         :elevation="0"
         style="padding: 0"
         class="p-0 m-0 close_mark"

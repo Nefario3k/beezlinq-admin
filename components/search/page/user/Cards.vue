@@ -77,6 +77,7 @@
       <!-- create card  -->
       <Button
         v-if="!tabIndicator"
+        @click="$emit('showCreateModal')"
         :elevation="0"
         textColor="var(--text-dark)"
         width="max-content"

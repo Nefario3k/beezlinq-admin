@@ -152,6 +152,38 @@ export default ({ app }, inject) => {
             return filterLinks[0].value
         }
     })
+    // chart bg
+    inject('getChartBg', () => {
+        return app.store.state.backgroundColors
+    })
+
+    // chart bg
+    inject('getChartOptions', () => {
+        return {
+            basicVal: {
+                responsive: true,
+                maintainAspectRatio: false,
+                pointStyle: "rectRounded",
+                hoverBackgroundColor: "#3FBF62",
+                hoverBorderColor: "#3FBF62",
+                barThickness: 20,
+                borderRadius: 4,
+                hoverOffset: 4,
+            },
+            // tooltip 
+            tooltip: {
+                backgroundColor: "#00317F",
+                titleColor: "#fff",
+                // bodyColor: "#eb3d34",
+                bodyFont: {
+                    weight: "bold",
+                    size: 12,
+                },
+                padding: 5,
+                displayColors: false,
+            },
+        }
+    })
 
     // state management section
     // return state data

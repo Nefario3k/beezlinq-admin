@@ -22,7 +22,7 @@
         pagination: pagination,
         itemsPerPageText: 'Rows Per Page:',
       }"
-      class="generic__table selectTable flows_color"
+      class="generic__table selectTable flows_color noAction"
     >
       <!-- user  -->
       <template v-slot:item.user="{ item }">
@@ -90,10 +90,7 @@
             </template>
             <v-list class="dropdown__list">
               <!-- user  -->
-              <v-list-item
-                @click="showPanel('view', item)"
-                class="dropdown__list-item"
-              >
+              <v-list-item to="/users/121212" class="dropdown__list-item">
                 <v-list-item-content>
                   <v-list-item-title class="dropdown__list-title"
                     >View User</v-list-item-title
@@ -102,7 +99,11 @@
               </v-list-item>
               <!-- edit  -->
               <v-list-item
-                @click="showPanel('edit', item)"
+                @click="
+                  $refs.editUserConnection.showPanel(
+                    'must pass something (obj)'
+                  )
+                "
                 class="dropdown__list-item"
               >
                 <v-list-item-content>
@@ -170,6 +171,28 @@
       </template>
     </v-data-table>
     <LoaderTable v-else />
+    <!--===================== panels and modals go here =====================-->
+    <PanelEditUser
+      @success="$refs.userEditInfo.showDialogue()"
+      @showWarning="$refs.userWarning.showDialogue()"
+      ref="editUserConnection"
+    />
+    <ModalUserEditWarning
+      @closePanel="
+        (val) => {
+          $refs.editUserConnection.closePanel(val);
+        }
+      "
+      ref="userWarning"
+    />
+    <ModalUserEditInfo
+      @closePanel="
+        (val) => {
+          $refs.editUserConnection.closePanel(val);
+        }
+      "
+      ref="userEditInfo"
+    />
   </div>
 </template>
 
@@ -191,7 +214,7 @@ export default {
         { text: "Profession", value: "job" },
         { text: "Card type", value: "type" },
         { text: "date", value: "created_at" },
-        { text: "action", value: "action" },
+        // { text: "action", value: "action" },
       ],
       pagination: {
         page: 1,

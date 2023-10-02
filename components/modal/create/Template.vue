@@ -20,7 +20,8 @@
                 <!--===================== Web  =====================-->
                 <template>
                   <div class="img_container">
-                    <div class="text-center">
+                    <img v-if="preview.web" :src="preview.web" alt="" />
+                    <div v-else class="text-center">
                       <div><SvgImageCover /></div>
                       <p class="img_label">Cover image here</p>
                     </div>
@@ -30,7 +31,8 @@
                 <!--===================== mobile  =====================-->
                 <template>
                   <div class="img_container mobile">
-                    <div class="text-center">
+                    <img v-if="preview.mobile" :src="preview.mobile" alt="" />
+                    <div v-else class="text-center">
                       <div><SvgImageCover /></div>
                       <p class="img_label">Cover image here</p>
                     </div>
@@ -138,23 +140,28 @@
                   <!-- Web Thumbnail  -->
                   <div class="col-12 pb-1">
                     <label for="" class="input_label">Web Thumbnail</label>
-                    <div class="drag_drop_container">
-                      <div class="drop_content">
-                        <SvgImageUpload />
-                        <p><span>Click to Upload</span> or Drag and drop</p>
-                        <p class="label">Maximum file size 2MB</p>
-                      </div>
-                    </div>
+                    <DragDrop
+                      @preview="
+                        (val) => {
+                          preview.web = val;
+                        }
+                      "
+                      :svg="true"
+                      :maxSize="2"
+                      svgVal="SvgImageUpload"
+                    />
                   </div>
                   <!-- Mobile Thumbnail  -->
                   <div class="col-12 pb-1">
                     <label for="" class="input_label">Mobile Thumbnail</label>
-                    <div class="drag_drop_container">
-                      <div class="drop_content">
-                        <p><span>Click to Upload</span> or Drag and drop</p>
-                        <p class="label">Maximum file size 2MB</p>
-                      </div>
-                    </div>
+                    <DragDrop
+                      @preview="
+                        (val) => {
+                          preview.mobile = val;
+                        }
+                      "
+                      :maxSize="2"
+                    />
                   </div>
                   <!-- Custom Colour  -->
                   <div class="col-12">
@@ -239,7 +246,7 @@
                   <!-- submit  -->
                   <div class="col-12 mb-5">
                     <Button
-                      @action="$emit('showInfo', info)"
+                      @click="$emit('showInfo', info)"
                       type="button"
                       :elevation="1"
                       height="5rem"
@@ -289,6 +296,10 @@ export default {
       info: {
         head: "Successful",
         sub: "Your template has been created successfully",
+      },
+      preview: {
+        web: null,
+        mobile: null,
       },
     };
   },

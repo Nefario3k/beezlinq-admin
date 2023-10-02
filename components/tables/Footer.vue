@@ -3,7 +3,7 @@
     <div class="left__section">
       <!-- previous btn  -->
       <Button
-        @action="
+        @click="
           $emit('loadMore', {
             page: pagination.itemsPerPage,
             currentPage: pagination.page,
@@ -71,7 +71,7 @@
       ></v-pagination>
       <!-- next btn -->
       <Button
-        @action="
+        @click="
           $emit('loadMore', {
             page: pagination.itemsPerPage,
             currentPage: pagination.page,

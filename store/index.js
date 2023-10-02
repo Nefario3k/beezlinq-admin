@@ -1,4 +1,5 @@
 export const state = () => ({
+    backgroundColors: ["#0062FF", "#FFB46F", "#00317F", "#ECF3FF"],
 })
 export const actions = {
     async test({ commit }, dataToSearch) {

@@ -171,7 +171,7 @@
           <div class="bottom__area">
             <Button
               type="submit"
-              :elevation="2"
+              :elevation="1"
               :disabled="loading || disableBtn().disable"
               :isSpinner="loading"
               height="5rem"

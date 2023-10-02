@@ -40,7 +40,7 @@
 
           <template v-else>
             <Button
-              @action="check"
+              @click="check"
               :elevation="0"
               width="100%"
               style="padding: 0"
@@ -51,6 +51,7 @@
               :svg="true"
               svgLeft="SvgHamburger"
             />
+            <!-- svgLeft="SvgHamburger" -->
           </template>
         </v-list-item>
         <!-- nav links  -->
@@ -215,8 +216,8 @@ export default {
           svg: "SvgSideBarRequest",
         },
         {
-          title: "Profile Settings",
-          link: "/profile",
+          title: "Settings",
+          link: "/settings",
           svg: "SvgSideBarSettings",
         },
       ];

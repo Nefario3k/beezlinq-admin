@@ -1,7 +1,11 @@
 <template>
   <div>
     <section class="pageContent">
-      <h2 class="page_head">Cards</h2>
+      <div class="d-flex align-center justify-space-between mb-5">
+        <h2 class="page_head mb-0">Cards</h2>
+        <!-- date filter  -->
+        <PageDateFilter />
+      </div>
       <!-- flex cards  -->
       <div class="card_wrapper">
         <Cards
@@ -13,8 +17,8 @@
       <!-- second row  -->
       <v-row class="page_top_row">
         <!--======================= stats sections  =======================-->
-        <!-- Top Five Industries by quantity of card -->
-        <section class="col-3">
+        <!-- Top Seven Industries by quantity of card -->
+        <section class="col">
           <div class="card_container no_inline">
             <!-- header  -->
             <div
@@ -23,7 +27,7 @@
               <!-- header nd label  -->
               <aside style="grid-gap: 12px" class="d-flex align-center">
                 <h4 class="mb-0 titleCard">
-                  Top Five Industries by quantity of card
+                  Top Seven Industries by quantity of card
                 </h4>
                 <Tooltip
                   icon="SvgInfo"
@@ -56,8 +60,8 @@
             </div>
           </div>
         </section>
-        <!-- Statistics -->
-        <section class="col-6">
+        <!-- Card Views -->
+        <section class="col-5">
           <div class="card_container no_inline">
             <!-- header  -->
             <div
@@ -65,7 +69,7 @@
             >
               <!-- header nd label  -->
               <aside style="grid-gap: 12px" class="d-flex align-center">
-                <h4 class="mb-0 titleCard">Statistics</h4>
+                <h4 class="mb-0 titleCard">Card Views</h4>
                 <Tooltip
                   icon="SvgInfo"
                   text="Users who recently registered on the platform"
@@ -73,7 +77,7 @@
               </aside>
               <!-- controls  -->
               <div class="button__controls">
-                <!-- Registration  -->
+                <!-- Weekly  -->
                 <v-menu :nudge-bottom="5" offset-y>
                   <template v-slot:activator="{ on, attrs }">
                     <div v-bind="attrs" v-on="on">
@@ -84,7 +88,7 @@
                         width="max-content"
                         :svg="true"
                         svgRight="SvgAngleDown"
-                        text="Registration"
+                        text="Weekly"
                         minWidth="11.4rem"
                         height="3rem"
                         color="var(--border)"
@@ -96,7 +100,7 @@
                     <v-list-item class="dropdown__list-item">
                       <v-list-item-content>
                         <v-list-item-title class="dropdown__list-title"
-                          >Registration</v-list-item-title
+                          >Weekly</v-list-item-title
                         >
                       </v-list-item-content>
                     </v-list-item>
@@ -125,14 +129,18 @@
                 </v-menu>
               </div>
             </div>
-            <!-- view more -->
-            <div class="view__more">
-              <a href="#">Show all</a>
+            <!-- chart -->
+            <div v-if="Object.keys(barChartData).length" class="py-2">
+              <ChartBar
+                :maxHeight="210"
+                :legend="true"
+                :barChartData="barChartData"
+              />
             </div>
           </div>
         </section>
         <!-- Cards by Country -->
-        <section class="col-3">
+        <section class="col">
           <div class="card_container no_inline">
             <!-- header  -->
             <div
@@ -239,14 +247,15 @@
         </section>
         <!--======================= user filter  =======================-->
         <section class="col-12">
-          <SearchPageUserOrigin />
+          <SearchPageCards />
         </section>
         <!--======================= user table  =======================-->
         <section class="col-12">
-          <TablesCards />
+          <TablesCardsPageIndex />
         </section>
       </v-row>
     </section>
+    <!--===================== panels and modals go here =====================-->
   </div>
 </template>
 
@@ -255,6 +264,14 @@ export default {
   data() {
     return {
       transactions: [
+        {
+          user: "Legal",
+          date: 56,
+        },
+        {
+          user: "Legal",
+          date: 56,
+        },
         {
           user: "Legal",
           date: 56,
@@ -308,6 +325,68 @@ export default {
           date: 48.4,
         },
       ],
+      barChartData: {
+        "Beezlinq View": [
+          {
+            label: "SUN",
+            value: 25,
+          },
+          {
+            label: "MON",
+            value: 5,
+          },
+          {
+            label: "TUE",
+            value: 16,
+          },
+          {
+            label: "WED",
+            value: 14,
+          },
+          {
+            label: "THU",
+            value: 14,
+          },
+          {
+            label: "FRI",
+            value: 4,
+          },
+          {
+            label: "SAT",
+            value: 10,
+          },
+        ],
+        "Guest View": [
+          {
+            label: "SUN",
+            value: 18,
+          },
+          {
+            label: "MON",
+            value: 14,
+          },
+          {
+            label: "TUE",
+            value: 14,
+          },
+          {
+            label: "WED",
+            value: 19,
+          },
+          {
+            label: "THU",
+            value: 3,
+          },
+          {
+            label: "FRI",
+            value: 17,
+          },
+          {
+            label: "SAT",
+            value: 4,
+          },
+        ],
+      },
     };
   },
   computed: {
@@ -347,10 +426,6 @@ export default {
         },
         {
           title: "Thrashed Card",
-          value: 410235,
-        },
-        {
-          title: "Deleted Cards",
           value: 410235,
         },
       ];

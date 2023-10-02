@@ -1,7 +1,10 @@
 <template>
   <div>
     <section class="pageContent">
-      <h2 class="page_head">Dashboard</h2>
+      <!--============================= header =============================-->
+      <div class="d-flex align-center justify-space-between mb-5">
+        <h2 class="page_head mb-0">Dashboard</h2>
+      </div>
       <v-row class="page_top_row">
         <!-- summary section  -->
         <section class="col-8 row">
@@ -55,6 +58,8 @@
                   </v-radio-group>
                 </div>
               </div>
+              <!-- chart  -->
+              <ChartDashboardStatistics />
             </div>
           </div>
         </section>

@@ -12,7 +12,7 @@
           <div class="button__controls">
             <!-- Edit User  -->
             <Button
-              @action="$refs.editUser.showPanel('must pass something (obj)')"
+              @click="$refs.editUser.showPanel('must pass something (obj)')"
               :elevation="0"
               :outlined="true"
               textColor="var(--primary-dark-color)"
@@ -25,7 +25,7 @@
             />
             <!-- Upgrade  -->
             <Button
-              @action="$refs.userUpgrade.showDialogue()"
+              @click="$refs.viewUpgrade.showPanel()"
               :elevation="0"
               :outlined="true"
               textColor="var(--primary-dark-color)"
@@ -38,7 +38,7 @@
             />
             <!-- Suspend  -->
             <Button
-              @action="$refs.userSuspend.showDialogue()"
+              @click="$refs.userSuspend.showDialogue()"
               :elevation="0"
               :outlined="true"
               textColor="var(--primary-dark-color)"
@@ -51,7 +51,7 @@
             />
             <!-- Disable  -->
             <Button
-              @action="$refs.userDisable.showDialogue()"
+              @click="$refs.userDisable.showDialogue()"
               :elevation="0"
               :outlined="true"
               textColor="var(--primary-dark-color)"
@@ -219,10 +219,11 @@
                 :outlined="true"
                 contentClass="outlined"
                 textColor="var(--primary-color)"
+                @showCreateModal="$refs.cardCreate.showDialogue()"
               />
             </div>
             <!--==================== table  ====================-->
-            <TablesUserCreate />
+            <TablesCardsSingleUser />
           </v-tab-item>
           <!-- Scanned Cards -->
           <v-tab-item class="p-0 m-0">
@@ -231,7 +232,7 @@
               <SearchPageUserCards :tabIndicator="tabIndicator" />
             </div>
             <!--==================== table  ====================-->
-            <TablesUserCreate />
+            <TablesCardsSingleUser />
           </v-tab-item>
           <!-- Archived Cards -->
           <v-tab-item class="p-0 m-0">
@@ -240,7 +241,7 @@
               <SearchPageUserCards :tabIndicator="tabIndicator" />
             </div>
             <!--==================== table  ====================-->
-            <TablesUserCreate />
+            <TablesCardsSingleUser />
           </v-tab-item>
           <!-- Connections -->
           <v-tab-item class="p-0 m-0">
@@ -277,6 +278,10 @@
       @success="$refs.userEditInfo.showDialogue()"
       @showWarning="$refs.userWarning.showDialogue()"
       ref="editUser"
+    />
+    <PanelViewUpgrade
+      @showUpgradeModal="$refs.userUpgrade.showDialogue()"
+      ref="viewUpgrade"
     />
     <ModalUserEditWarning
       @closePanel="

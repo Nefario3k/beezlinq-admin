@@ -3,59 +3,8 @@
     <section class="pageContent">
       <div class="d-flex align-center justify-space-between mb-5">
         <h2 class="page_head mb-0">Users</h2>
-        <!-- location  -->
-        <v-menu :nudge-bottom="5" offset-y>
-          <template v-slot:activator="{ on, attrs }">
-            <div v-bind="attrs" v-on="on">
-              <Button
-                :elevation="0"
-                :outlined="true"
-                textColor="var(--primary-dark-color)"
-                width="max-content"
-                :svg="true"
-                svgRight="SvgAngleDown"
-                svgLeft="SvgDateSearch"
-                :text="`${$formatDateString(new Date())} - ${$formatDateString(
-                  new Date()
-                )}`"
-                minWidth="26.6rem"
-                height="4.4rem"
-                color="var(--border)"
-                contentClass="card__dropdown date__filter"
-              />
-            </div>
-          </template>
-          <v-list class="dropdown__list userDropDown">
-            <v-list-item class="dropdown__list-item">
-              <v-list-item-content>
-                <v-list-item-title class="dropdown__list-title"
-                  >Registration</v-list-item-title
-                >
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item class="dropdown__list-item">
-              <v-list-item-content>
-                <v-list-item-title class="dropdown__list-title"
-                  >Free Users</v-list-item-title
-                >
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item class="dropdown__list-item">
-              <v-list-item-content>
-                <v-list-item-title class="dropdown__list-title"
-                  >Subscribed Users</v-list-item-title
-                >
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item class="dropdown__list-item">
-              <v-list-item-content>
-                <v-list-item-title class="dropdown__list-title"
-                  >Suspend User</v-list-item-title
-                >
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+        <!-- date filter  -->
+        <PageDateFilter />
       </div>
       <!-- flex cards  -->
       <div class="card_wrapper">
@@ -243,6 +192,31 @@
                     </v-list-item>
                   </v-list>
                 </v-menu>
+              </div>
+            </div>
+            <div
+              v-if="pieChartData.length"
+              class="py-2 d-flex align-center justify-space-between gap-3 w-100"
+            >
+              <ChartPie :pieChartData="pieChartData" />
+              <div class="pieLabels country">
+                <ul>
+                  <li v-for="(items, id) in pieChartData" :key="id + 994488">
+                    <!-- label color -->
+                    <span
+                      :style="{ backgroundColor: items.color }"
+                      class="tag"
+                    ></span>
+                    <!-- image  -->
+                    <div class="img_container">
+                      <img :src="items.flag" alt="" />
+                    </div>
+                    <!-- label name -->
+                    <span>{{ items.label }}</span>
+                    <!-- label % -->
+                    <span class="percent">{{ items.value }}%</span>
+                  </li>
+                </ul>
               </div>
             </div>
             <!-- view more -->
@@ -447,6 +421,32 @@ export default {
           flag: "/images/temp/flags/3.png",
           value: 30,
           date: 48.4,
+        },
+      ],
+      pieChartData: [
+        {
+          label: "Nigeria",
+          value: 56,
+          color: "#0062FF",
+          flag: "/images/temp/flags/1.png",
+        },
+        {
+          label: "Ghana",
+          value: 24,
+          color: "#FF993A",
+          flag: "/images/temp/flags/2.png",
+        },
+        {
+          label: "Spain",
+          value: 12,
+          color: "#00317F",
+          flag: "/images/temp/flags/3.png",
+        },
+        {
+          label: "Egypt",
+          value: 8,
+          color: "#C3C3FF",
+          flag: "/images/temp/flags/2.png",
         },
       ],
     };

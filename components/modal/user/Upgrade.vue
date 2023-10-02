@@ -21,7 +21,7 @@
             </p>
             <div class="button_area">
               <Button
-                @action="form = true"
+                @click="form = true"
                 height="5rem"
                 width="100%"
                 color="var(--primary-color)"
@@ -38,7 +38,8 @@
             </p>
             <div class="button_area">
               <Button
-                @action="closeAll"
+                @click="closeAll"
+                to="/request"
                 :outlined="true"
                 height="5rem"
                 width="100%"
