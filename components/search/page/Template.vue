@@ -25,55 +25,14 @@
     <!-- actions area  -->
     <aside class="actions__area">
       <!-- Category  -->
-      <v-menu :nudge-bottom="5" offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <div v-bind="attrs" v-on="on">
-            <Button
-              :elevation="0"
-              :outlined="true"
-              textColor="var(--primary-dark-color)"
-              width="max-content"
-              :svg="true"
-              svgRight="SvgAngleDown"
-              text="Category"
-              minWidth="19rem"
-              height="4.8rem"
-              color="var(--border)"
-              contentClass="card__dropdown large"
-            />
-          </div>
-        </template>
-        <v-list class="dropdown__list userDropDown">
-          <v-list-item class="dropdown__list-item">
-            <v-list-item-content>
-              <v-list-item-title class="dropdown__list-title"
-                >Registration</v-list-item-title
-              >
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item class="dropdown__list-item">
-            <v-list-item-content>
-              <v-list-item-title class="dropdown__list-title"
-                >Free Users</v-list-item-title
-              >
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item class="dropdown__list-item">
-            <v-list-item-content>
-              <v-list-item-title class="dropdown__list-title"
-                >Subscribed Users</v-list-item-title
-              >
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item class="dropdown__list-item">
-            <v-list-item-content>
-              <v-list-item-title class="dropdown__list-title"
-                >Suspend User</v-list-item-title
-              >
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <DropDownBtn
+        :resetBtnStyle="{
+          minWidth: '19rem',
+          height: '4.8rem',
+          contentClass: 'card__dropdown large',
+        }"
+        listNames="template category"
+      />
     </aside>
   </div>
 </template>

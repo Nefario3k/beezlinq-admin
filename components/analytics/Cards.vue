@@ -77,48 +77,7 @@
             <!-- controls  -->
             <div class="button__controls">
               <!-- All Plans  -->
-              <v-menu :nudge-bottom="5" offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                  <div v-bind="attrs" v-on="on">
-                    <Button
-                      :elevation="0"
-                      :outlined="true"
-                      textColor="var(--primary-dark-color)"
-                      width="max-content"
-                      :svg="true"
-                      svgRight="SvgAngleDown"
-                      text="This week"
-                      minWidth="11.4rem"
-                      height="3rem"
-                      color="var(--border)"
-                      contentClass="card__dropdown"
-                    />
-                  </div>
-                </template>
-                <v-list class="dropdown__list userDropDown">
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >This week</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >This month</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >This year</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              <DropDownBtn listNames="payment perThis" />
             </div>
           </div>
           <!-- chart -->
@@ -142,48 +101,7 @@
             <!-- controls  -->
             <div class="button__controls">
               <!-- All Plans  -->
-              <v-menu :nudge-bottom="5" offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                  <div v-bind="attrs" v-on="on">
-                    <Button
-                      :elevation="0"
-                      :outlined="true"
-                      textColor="var(--primary-dark-color)"
-                      width="max-content"
-                      :svg="true"
-                      svgRight="SvgAngleDown"
-                      text="All Cards"
-                      minWidth="11.4rem"
-                      height="3rem"
-                      color="var(--border)"
-                      contentClass="card__dropdown"
-                    />
-                  </div>
-                </template>
-                <v-list class="dropdown__list userDropDown">
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >All Cards</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Scanned Cards</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Beezlinq Cards</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              <DropDownBtn listNames="cards type" />
             </div>
           </div>
           <div

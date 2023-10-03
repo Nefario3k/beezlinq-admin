@@ -17,100 +17,11 @@
               <span v-else>Card Created by Country</span>
             </p>
             <!-- All Template  -->
-            <v-menu :nudge-bottom="5" offset-y>
-              <template v-slot:activator="{ on, attrs }">
-                <div v-bind="attrs" v-on="on">
-                  <Button
-                    :elevation="0"
-                    :outlined="true"
-                    textColor="var(--primary-dark-color)"
-                    width="max-content"
-                    :svg="true"
-                    svgRight="SvgAngleDown"
-                    text="All Template"
-                    minWidth="11.4rem"
-                    height="3rem"
-                    color="var(--border)"
-                    contentClass="card__dropdown"
-                  />
-                </div>
-              </template>
-              <v-list class="dropdown__list userDropDown">
-                <v-list-item class="dropdown__list-item">
-                  <v-list-item-content>
-                    <v-list-item-title class="dropdown__list-title"
-                      >All Template</v-list-item-title
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-                <v-list-item class="dropdown__list-item">
-                  <v-list-item-content>
-                    <v-list-item-title class="dropdown__list-title"
-                      >Free Templates</v-list-item-title
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-                <v-list-item class="dropdown__list-item">
-                  <v-list-item-content>
-                    <v-list-item-title class="dropdown__list-title"
-                      >Paid Templates</v-list-item-title
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-                <v-list-item class="dropdown__list-item">
-                  <v-list-item-content>
-                    <v-list-item-title class="dropdown__list-title"
-                      >Custom Template</v-list-item-title
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-menu>
+            <DropDownBtn listNames="template type" />
           </template>
           <template v-else>
             <!-- All Users  -->
-            <v-menu :nudge-bottom="5" offset-y>
-              <template v-slot:activator="{ on, attrs }">
-                <div v-bind="attrs" v-on="on">
-                  <Button
-                    :elevation="0"
-                    :outlined="true"
-                    textColor="var(--primary-dark-color)"
-                    width="max-content"
-                    :svg="true"
-                    svgRight="SvgAngleDown"
-                    text="All Users"
-                    minWidth="11.4rem"
-                    height="3rem"
-                    color="var(--border)"
-                    contentClass="card__dropdown"
-                  />
-                </div>
-              </template>
-              <v-list class="dropdown__list userDropDown">
-                <v-list-item class="dropdown__list-item">
-                  <v-list-item-content>
-                    <v-list-item-title class="dropdown__list-title"
-                      >All Users</v-list-item-title
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-                <v-list-item class="dropdown__list-item">
-                  <v-list-item-content>
-                    <v-list-item-title class="dropdown__list-title"
-                      >Free Users</v-list-item-title
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-                <v-list-item class="dropdown__list-item">
-                  <v-list-item-content>
-                    <v-list-item-title class="dropdown__list-title"
-                      >Premium Users</v-list-item-title
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-menu>
+            <DropDownBtn listNames="users type" />
             <p style="font-weight: 700">by Country</p>
           </template>
         </div>
@@ -171,58 +82,61 @@ export default {
     },
   },
   data() {
-    return {
-      infovert: [
+    return {};
+  },
+  computed: {
+    infovert() {
+      return [
         {
           title: "Nigeria",
-          color: "var(--primary-color)",
+          color: this.$getChartColor(411100736),
           flag: 1,
-          users: 100736,
+          users: 411100736,
         },
         {
           title: "Spain",
-          color: "var(--pending-color2)",
+          color: this.$getChartColor(100736),
           flag: 3,
-          users: 159909,
+          users: 100736,
         },
         {
           title: "Ghana",
-          color: "var(--primary-lte-color6)",
+          color: this.$getChartColor(3000),
           flag: 2,
           users: 3000,
         },
         {
           title: "United States of America",
-          color: "var(--text-dark4)",
+          color: this.$getChartColor(1532007),
           flag: 5,
           users: 1532007,
         },
         {
           title: "United Kingdom",
-          color: "var(--text-dark4)",
+          color: this.$getChartColor(5000032),
           flag: 3,
           users: 5000032,
         },
         {
           title: "Brazil",
-          color: "var(--text-dark4)",
+          color: this.$getChartColor(1620232),
           flag: 3,
           users: 1620232,
         },
         {
           title: "Russia",
-          color: "var(--text-dark4)",
+          color: this.$getChartColor(1600),
           flag: 3,
           users: 1600,
         },
         {
           title: "South Africa",
-          color: "var(--text-dark4)",
+          color: this.$getChartColor(2323323),
           flag: 3,
           users: 2323323,
         },
-      ],
-    };
+      ];
+    },
   },
 };
 </script>

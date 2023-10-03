@@ -71,48 +71,7 @@
             <!-- controls  -->
             <div class="button__controls">
               <!-- All Plans  -->
-              <v-menu :nudge-bottom="5" offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                  <div v-bind="attrs" v-on="on">
-                    <Button
-                      :elevation="0"
-                      :outlined="true"
-                      textColor="var(--primary-dark-color)"
-                      width="max-content"
-                      :svg="true"
-                      svgRight="SvgAngleDown"
-                      text="All Location"
-                      minWidth="11.4rem"
-                      height="3rem"
-                      color="var(--border)"
-                      contentClass="card__dropdown"
-                    />
-                  </div>
-                </template>
-                <v-list class="dropdown__list userDropDown">
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Nigeria</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Ghana</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Panama</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              <DropDownBtn listNames="country temp" />
             </div>
           </div>
           <div v-if="Object.keys(barChartData).length" class="py-2">
@@ -137,48 +96,7 @@
             <!-- controls  -->
             <div class="button__controls">
               <!-- All Plans  -->
-              <v-menu :nudge-bottom="5" offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                  <div v-bind="attrs" v-on="on">
-                    <Button
-                      :elevation="0"
-                      :outlined="true"
-                      textColor="var(--primary-dark-color)"
-                      width="max-content"
-                      :svg="true"
-                      svgRight="SvgAngleDown"
-                      text="Today"
-                      minWidth="11.4rem"
-                      height="3rem"
-                      color="var(--border)"
-                      contentClass="card__dropdown"
-                    />
-                  </div>
-                </template>
-                <v-list class="dropdown__list userDropDown">
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Overall</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Today</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >This Week</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              <DropDownBtn listNames="payment perThis" />
             </div>
           </div>
           <div
@@ -230,69 +148,7 @@
             <!-- controls  -->
             <div class="button__controls">
               <!-- All Plans  -->
-              <v-menu :nudge-bottom="5" offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                  <div v-bind="attrs" v-on="on">
-                    <Button
-                      :elevation="0"
-                      :outlined="true"
-                      textColor="var(--primary-dark-color)"
-                      width="max-content"
-                      :svg="true"
-                      svgRight="SvgAngleDown"
-                      text="All template"
-                      minWidth="11.4rem"
-                      height="3rem"
-                      color="var(--border)"
-                      contentClass="card__dropdown"
-                    />
-                  </div>
-                </template>
-                <v-list class="dropdown__list userDropDown">
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Green Template</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Orange Template</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Purple Template</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Red Template</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Lucid Template</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item class="dropdown__list-item">
-                    <v-list-item-content>
-                      <v-list-item-title class="dropdown__list-title"
-                        >Dark Template</v-list-item-title
-                      >
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              <DropDownBtn listNames="template name" />
             </div>
           </div>
           <div v-if="Object.keys(barChartData).length" class="py-2">

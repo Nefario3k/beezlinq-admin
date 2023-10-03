@@ -6,42 +6,10 @@
         <!-- date filter  -->
         <div class="d-flex align-center gap-3">
           <PageDateFilter />
-          <v-menu :nudge-bottom="5" offset-y>
-            <template v-slot:activator="{ on, attrs }">
-              <div v-bind="attrs" v-on="on">
-                <Button
-                  :elevation="0"
-                  :outlined="true"
-                  textColor="var(--primary-dark-color)"
-                  width="max-content"
-                  :svg="true"
-                  svgLeft="SvgLogoNflag"
-                  svgRight="SvgAngleDown"
-                  text="Naira"
-                  minWidth="11.8rem"
-                  height="4.4rem"
-                  color="var(--border)"
-                  contentClass="card__dropdown"
-                />
-              </div>
-            </template>
-            <v-list class="dropdown__list userDropDown">
-              <v-list-item class="dropdown__list-item">
-                <v-list-item-content>
-                  <v-list-item-title class="dropdown__list-title"
-                    >Naira</v-list-item-title
-                  >
-                </v-list-item-content>
-              </v-list-item>
-              <v-list-item class="dropdown__list-item">
-                <v-list-item-content>
-                  <v-list-item-title class="dropdown__list-title"
-                    >Dollar</v-list-item-title
-                  >
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <DropDownBtn
+            :resetBtnStyle="{ svgLeft: 'SvgLogoNflag', height: '4.4rem' }"
+            listNames="payment currency"
+          />
         </div>
       </div>
       <div class="card_wrapper">
@@ -68,48 +36,7 @@
               <!-- controls  -->
               <div class="button__controls">
                 <!-- All Plans  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="All Plans"
-                        minWidth="11.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >All Plans</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Subscription</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Scan Unit</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="payment all" />
               </div>
             </div>
             <div
@@ -151,93 +78,11 @@
               <div class="d-flex align-center">
                 <div class="button__controls">
                   <!-- location  -->
-                  <v-menu :nudge-bottom="5" offset-y>
-                    <template v-slot:activator="{ on, attrs }">
-                      <div v-bind="attrs" v-on="on">
-                        <Button
-                          :elevation="0"
-                          :outlined="true"
-                          textColor="var(--primary-dark-color)"
-                          width="max-content"
-                          :svg="true"
-                          svgRight="SvgAngleDown"
-                          text="Monthly"
-                          minWidth="11.4rem"
-                          height="3rem"
-                          color="var(--border)"
-                          contentClass="card__dropdown"
-                        />
-                      </div>
-                    </template>
-                    <v-list class="dropdown__list userDropDown">
-                      <v-list-item class="dropdown__list-item">
-                        <v-list-item-content>
-                          <v-list-item-title class="dropdown__list-title"
-                            >Weekly</v-list-item-title
-                          >
-                        </v-list-item-content>
-                      </v-list-item>
-                      <v-list-item class="dropdown__list-item">
-                        <v-list-item-content>
-                          <v-list-item-title class="dropdown__list-title"
-                            >Monthly</v-list-item-title
-                          >
-                        </v-list-item-content>
-                      </v-list-item>
-                      <v-list-item class="dropdown__list-item">
-                        <v-list-item-content>
-                          <v-list-item-title class="dropdown__list-title"
-                            >Yearly</v-list-item-title
-                          >
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
+                  <DropDownBtn listNames="payment perweek" />
                 </div>
                 <div class="button__controls ml-2">
                   <!-- location  -->
-                  <v-menu :nudge-bottom="5" offset-y>
-                    <template v-slot:activator="{ on, attrs }">
-                      <div v-bind="attrs" v-on="on">
-                        <Button
-                          :elevation="0"
-                          :outlined="true"
-                          textColor="var(--primary-dark-color)"
-                          width="max-content"
-                          :svg="true"
-                          svgRight="SvgAngleDown"
-                          text="Subscription"
-                          minWidth="11.4rem"
-                          height="3rem"
-                          color="var(--border)"
-                          contentClass="card__dropdown"
-                        />
-                      </div>
-                    </template>
-                    <v-list class="dropdown__list userDropDown">
-                      <v-list-item class="dropdown__list-item">
-                        <v-list-item-content>
-                          <v-list-item-title class="dropdown__list-title"
-                            >All Payment</v-list-item-title
-                          >
-                        </v-list-item-content>
-                      </v-list-item>
-                      <v-list-item class="dropdown__list-item">
-                        <v-list-item-content>
-                          <v-list-item-title class="dropdown__list-title"
-                            >Plan Subscription</v-list-item-title
-                          >
-                        </v-list-item-content>
-                      </v-list-item>
-                      <v-list-item class="dropdown__list-item">
-                        <v-list-item-content>
-                          <v-list-item-title class="dropdown__list-title"
-                            >Scan Unit</v-list-item-title
-                          >
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
+                  <DropDownBtn listNames="payment type" />
                 </div>
               </div>
             </div>
@@ -266,48 +111,7 @@
               <!-- controls  -->
               <div class="button__controls">
                 <!-- All Plans  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="All Plans"
-                        minWidth="11.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >All Plans</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Subscription</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Scan Unit</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="payment all" />
               </div>
             </div>
             <!-- table  -->

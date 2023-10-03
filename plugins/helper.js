@@ -185,6 +185,33 @@ export default ({ app }, inject) => {
         }
     })
 
+    // world chart color
+    inject('getChartColor', (val) => {
+        if (!val && val != 0) return 'red';
+        var number = Number(val)
+        const rangeValues = [
+            // 0 - 1000
+            // 1000 - 10,000
+            // 10,000 - ten-M 
+            // tem-M - 1B 
+            // 1b - upwards
+            0, 999, 99999, 999999, 9999999, 999999999
+        ]
+        if (number >= rangeValues[0] && number <= rangeValues[1]) {
+            return "rgba(236, 239, 255, 1)";
+        } else if (number >= rangeValues[1] && number <= rangeValues[2]) {
+            return "#FFC289";
+        } else if (number >= rangeValues[2] && number <= rangeValues[3]) {
+            return "#00317F";
+        } else if (number >= rangeValues[3] && number <= rangeValues[4]) {
+            return "#FF993A";
+        } else if (number >= rangeValues[4] && number <= rangeValues[5]) {
+            return "#0062FF";
+        } else {
+            return "#445A8A";
+        }
+    })
+
     // state management section
     // return state data
 

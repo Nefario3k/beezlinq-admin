@@ -89,91 +89,9 @@
               <!-- controls  -->
               <div class="button__controls">
                 <!-- Today  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="Today"
-                        minWidth="11.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Today</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Free Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Subscribed Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Suspend User</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="template perweek" />
                 <!-- Template Usage  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="Template Usage"
-                        minWidth="11.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Template Usage</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Template Previews</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="template usage" />
               </div>
             </div>
             <div v-if="Object.keys(barChartData).length" class="py-2">
@@ -199,55 +117,7 @@
               <!-- controls  -->
               <div class="button__controls">
                 <!-- All Template  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="All Template"
-                        minWidth="11.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >All template</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Free Template</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Premium Template</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Custom template</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="template type" />
               </div>
             </div>
             <!-- view more -->

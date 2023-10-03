@@ -42,21 +42,22 @@ export default {
           value: getValue(element.properties.name),
         }));
         // background
-        function getBackground(data) {
-          let sum = data.reduce(function (accumulator, currentValue) {
-            return accumulator + currentValue.value;
-          }, 0);
+        const getBackground = (data) => {
+          // let sum = data.reduce(function (accumulator, currentValue) {
+          //   return accumulator + currentValue.value;
+          // }, 0);
 
           var colors = data.map((element) => {
-            var percent = (element.value / sum) * 100;
-            if (element.value) {
-              return `rgba(0, 49, 127, ${percent})`;
-            } else {
-              return "rgba(236, 239, 255, 1)";
-            }
+            return this.$getChartColor(element.value);
+            // var percent = (element.value / sum) * 100;
+            // if (element.value) {
+            //   return `rgba(0, 49, 127, ${percent})`;
+            // } else {
+            //   return "rgba(236, 239, 255, 1)";
+            // }
           });
           return colors;
-        }
+        };
 
         // chart
         const ctx = this.$refs.barChart;

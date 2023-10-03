@@ -78,55 +78,7 @@
               <!-- controls  -->
               <div class="button__controls">
                 <!-- Weekly  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="Weekly"
-                        minWidth="11.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Weekly</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Free Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Subscribed Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Suspend User</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="cards perweek" />
               </div>
             </div>
             <!-- chart -->
@@ -157,62 +109,7 @@
               <!-- controls  -->
               <div class="button__controls">
                 <!-- All Cards  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="All Cards"
-                        minWidth="11.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Registration</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Subscribed Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Free Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Suspended Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Disabled Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="cards users" />
               </div>
             </div>
             <!-- view more -->

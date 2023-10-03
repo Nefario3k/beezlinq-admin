@@ -32,55 +32,7 @@
               <!-- controls  -->
               <div class="button__controls">
                 <!-- location  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="All Location"
-                        minWidth="11.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Registration</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Free Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Subscribed Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Suspend User</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="cards users" />
               </div>
             </div>
             <!-- table  -->
@@ -129,69 +81,7 @@
               <!-- controls  -->
               <div class="button__controls">
                 <!-- All Users  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="All Users"
-                        minWidth="13.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >All Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Registration</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Subscribed Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Free Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Suspended Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Disabled Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="users all" />
               </div>
             </div>
             <div
@@ -243,69 +133,7 @@
               <!-- controls  -->
               <div class="button__controls">
                 <!-- All Location  -->
-                <v-menu :nudge-bottom="5" offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <div v-bind="attrs" v-on="on">
-                      <Button
-                        :elevation="0"
-                        :outlined="true"
-                        textColor="var(--primary-dark-color)"
-                        width="max-content"
-                        :svg="true"
-                        svgRight="SvgAngleDown"
-                        text="All Location"
-                        minWidth="11.4rem"
-                        height="3rem"
-                        color="var(--border)"
-                        contentClass="card__dropdown"
-                      />
-                    </div>
-                  </template>
-                  <v-list class="dropdown__list userDropDown">
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >All Location</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Registration</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Subscribed Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Free Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Suspended Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="dropdown__list-item">
-                      <v-list-item-content>
-                        <v-list-item-title class="dropdown__list-title"
-                          >Disabled Users</v-list-item-title
-                        >
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                <DropDownBtn listNames="users location" />
               </div>
             </div>
 
